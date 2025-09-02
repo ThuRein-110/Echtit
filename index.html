@@ -7,26 +7,31 @@
   <link rel="stylesheet" href="styles.css">
   <script src="scripts.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 </head>
 <body>
-  <header>
-    <div class="header-left">
-      <h1 style="padding-right: 1in;">Echtit</h1>
-      <img src="./img/Untitled design (1).png" alt="Logo">
-    </div>
-    <div class="header-right">
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#vlog">Vlog</a></li>
-          <li><a href="#tools">Tools</a></li>
-        </ul>
-      </nav>
-      <button id="theme-toggle">🌙</button>
-    </div>
-  </header>
+    <header>
+        <div class="header-container">
+            <div class="header-left">
+                <h1>Echtit</h1>
+                <img src="https://placehold.co/40x40/4f46e5/white?text=E" alt="Logo">
+            </div>
+           <div class="header-right">
+  <button class="menu-toggle" type="button">☰</button>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#vlog">Vlog</a></li>
+      <li><a href="#tools">Tools</a></li>
+    </ul>
+  </nav>
+</div>
+
+        </div>
+         
+    </header>
   <main>
     
       
@@ -172,71 +177,291 @@
     </section>
     <!-- Add other sections for vlog, tools, about, and contact -->
 
-
-    <section id="vlog" class="blog-page">
-      <h2 class="title-header">Vlog</h2>
-      <div class="featured-video">
-        <div class="video-card">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/ouIyVL7WixU?si=gSus-I16dGURPUYO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<!--Vlog-->
+<section id="vlog">
+  <div class="vlog-header">
+    <h2>Vlog & Tutorials</h2>
+    <p>Explore our latest cybersecurity tutorials, tool reviews, and hacking demonstrations</p>
+  </div>
+  
+  <div class="featured-video flipper-featured">
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ouIyVL7WixU?si=gSus-I16dGURPUYO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+     
+    </div>
+    <div class="video-info">
+      <h3><i class="fas fa-play-circle"></i> Flipper Zero Setting Up (mmsub)</h3>
+      <p>Learn how to set up and configure your Flipper Zero device for penetration testing and security research. This tutorial covers initial setup, firmware installation, and essential configuration steps.</p>
+      <div class="video-meta">
+        <div class="video-actions">
+          <a href="https://www.youtube.com/watch?v=ouIyVL7WixU" target="_blank" class="video-btn primary">
+            <i class="fab fa-youtube"></i> Watch on YouTube
+          </a>
+         
         </div>
-        <div class="video-info">
-          <h3>Flipper Zero Setting Up (mmsub)</h3>
-          <p>Description of the featured video goes here.</p>
-          <a href="https://www.youtube.com/watch?v=ouIyVL7WixU" target="_blank">Watch on YouTube</a>
-      </div>
       
       </div>
-      <div class="sample-videos">
-        <h3>Sample Videos</h3>
-        <div class="video-grid">
-          <!-- Sample video in the middle of the page -->
-          <div class="video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/SKqJsup1A2E?si=C5xo6xtvN8pX3KoE" frameborder="0" allowfullscreen></iframe>
-            <p>Disk Volume hiding in windows step by step Tutorial</p> 
-          </div>
-          <div class="video">
-            <div class="video">
-              <iframe width="560" height="315" src="https://www.youtube.com/embed/F1niOHuMK-Q?si=3HmCa7Y25EMlW5K3" frameborder="0" allowfullscreen></iframe>
-              <p>How to create a port scanner with python</p>
-          </div>
-          </div>
-          <div class="video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/EHM5XsH4sxk?si=-765qZMnZdVHb91r" frameborder="0" allowfullscreen></iframe>            <p>Sample Video Title</p>
-            <p>How computer work and Software development life cycle</p>
-          </div>
-          <!-- Additional videos in two rows -->
-          <div class="video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/_Ralh52G7zU?si=r0c04n9XU9z9RgAF" frameborder="0" allowfullscreen></iframe>            <p>Video Title 1</p>
-          </div>
-          <div class="video">
-            <iframe width="280" height="157" src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" frameborder="0" allowfullscreen></iframe>
-            <p>How to use Virtual Machine on M1 and M2 chip base Macbook using UTM</p>
-          </div>
-          <div class="video">
-            <iframe width="280" height="315" src="https://www.youtube.com/embed/Vlr5VNlfgKU?si=7pSvVlcDLq08JT80" frameborder="0" allowfullscreen></iframe>            <p>Video Title 1</p>
-            <p>How to create a table with Microsoft access and most common error in there</p>
-          </div>
-          <div class="video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/jwj67NjJtIo?si=_moXnyzkGR6eMkdt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            <p>Video Title 1</p>
-            <p>How to create a bad usb stick</p>
-          </div>
-          <div class="video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/k1ZoXKzzwCE?si=rE1BPXE-1MuvGdbD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            <p>Video Title 1</p>
-            <p>How to hide your image file in audio file using stenography technique</p>
-          </div>
-          <div class="video">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/876-reckwY8?si=ByNO9GkxYSOzzv1o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            <p>Video Title 1</p>
-            <p> Hijacking File Associations in WinReg </p>
-          </div>
-          <div class="video">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/2WOwqH2efJ4?si=ok49E6j-qfxSMpXa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            <p>Video Title 1</p>
-            <p> Static Property-Based Signatures TryHackMe Walkthrough </p>
-          </div>
-          <!-- Add more video elements as needed -->
-        </div>
-      </div>
-    </section>
-    
+    </div>
+  </div>
+  
+  <!-- Sample Videos Section -->
+        <div class="sample-videos">
+            <div class="sample-header">
+                <h3>More Videos</h3>
+                <div class="sample-filter">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Tutorials</button>
+                    <button class="filter-btn">Tools</button>
+                    <button class="filter-btn">Forensics</button>
+                </div>
+            </div>
+            
+            <div class="video-grid">
+                <div class="video-item" data-category="Tutorials">
+                    <div class="video-thumb">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/SKqJsup1A2E?si=C5xo6xtvN8pX3KoE" frameborder="0" allowfullscreen></iframe>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">12:45</div>
+                    </div>
+                    <div class="video-details">
+                        <h4>Disk Volume Hiding in Windows Step by Step Tutorial</h4>
+                        <p>Learn how to hide disk volumes in Windows for enhanced privacy and security.</p>
+                        <a href="https://www.youtube.com/watch?v=SKqJsup1A2E" target="_blank" class="watch-btn">
+                            <i class="fab fa-youtube"></i> Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="video-item" data-category="Tools">
+                    <div class="video-thumb">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/F1niOHuMK-Q?si=3HmCa7Y25EMlW5K3" frameborder="0" allowfullscreen></iframe>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">18:30</div>
+                    </div>
+                    <div class="video-details">
+                        <h4>How to Create a Port Scanner with Python</h4>
+                        <p>Build a network port scanner using Python for security assessments.</p>
+                        <a href="https://www.youtube.com/watch?v=F1niOHuMK-Q" target="_blank" class="watch-btn">
+                            <i class="fab fa-youtube"></i> Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="video-item" data-category="Tutorials">
+                    <div class="video-thumb">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/EHM5XsH4sxk?si=-765qZMnZdVHb91r" frameborder="0" allowfullscreen></iframe>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">22:15</div>
+                    </div>
+                    <div class="video-details">
+                        <h4>How Computers Work and Software Development Life Cycle</h4>
+                        <p>Understanding computer fundamentals and the SDLC process.</p>
+                        <a href="https://www.youtube.com/watch?v=EHM5XsH4sxk" target="_blank" class="watch-btn">
+                            <i class="fab fa-youtube"></i> Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="video-item" data-category="Tutorials">
+                    <div class="video-thumb">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/_Ralh52G7zU?si=r0c04n9XU9z9RgAF" frameborder="0" allowfullscreen></iframe>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">15:20</div>
+                    </div>
+                    <div class="video-details">
+                        <h4>Network Security Basics</h4>
+                        <p>Essential concepts for securing your network infrastructure.</p>
+                        <a href="https://www.youtube.com/watch?v=_Ralh52G7zU" target="_blank" class="watch-btn">
+                            <i class="fab fa-youtube"></i> Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="video-item" data-category="Tools">
+                    <div class="video-thumb">
+                        <!-- Placeholder for UTM video -->
+                        <div style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;position:absolute;top:0;left:0;">
+                            <i class="fas fa-video" style="font-size:2rem;color:#ccc;"></i>
+                        </div>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">25:10</div>
+                    </div>
+                    <div class="video-details">
+                        <h4>How to Use Virtual Machine on M1 and M2 Chip Macbook Using UTM</h4>
+                        <p>Run virtual machines on Apple Silicon Macs with UTM.</p>
+                        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE" target="_blank" class="watch-btn">
+                            <i class="fab fa-youtube"></i> Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="video-item" data-category="Tutorials">
+                    <div class="video-thumb">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Vlr5VNlfgKU?si=7pSvVlcDLq08JT80" frameborder="0" allowfullscreen></iframe>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">14:55</div>
+                    </div>
+                    <div class="video-details">
+                        <h4>How to Create a Table with Microsoft Access and Common Errors</h4>
+                        <p>Database creation tips and troubleshooting common MS Access issues.</p>
+                        <a href="https://www.youtube.com/watch?v=Vlr5VNlfgKU" target="_blank" class="watch-btn">
+                            <i class="fab fa-youtube"></i> Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="video-item flipper-featured" data-category="Tools">
+                    <div class="flipper-badge">
+                        <i class="fas fa-bolt"></i> Featured Tool
+                    </div>
+                    <div class="video-thumb">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/jwj67NjJtIo?si=_moXnyzkGR6eMkdt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">19:40</div>
+                    </div>
+                    <div class="video-details">
+                        <h4>How to Create a Bad USB Stick</h4>
+                        <p>Turning a regular USB drive into a penetration testing tool.</p>
+                        <a href="https://www.youtube.com/watch?v=jwj67NjJtIo" target="_blank" class="watch-btn">
+                            <i class="fab fa-youtube"></i> Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="video-item" data-category="Forensics">
+                    <div class="video-thumb">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/k1ZoXKzzwCE?si=rE1BPXE-1MuvGdbD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">16:25</div>
+                    </div>
+                    <div class="video-details">
+                        <h4>How to Hide Your Image File in Audio File Using Steganography</h4>
+                        <p>Concealing files using steganography techniques.</p>
+                        <a href="https://www.youtube.com/watch?v=k1ZoXKzzwCE" target="_blank" class="watch-btn">
+                            <i class="fab fa-youtube"></i> Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="video-item" data-category="Forensics">
+                    <div class="video-thumb">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/876-reckwY8?si=ByNO9GkxYSOzzv1o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">21:05</div>
+                    </div>
+                    <div class="video-details">
+                        <h4>Hijacking File Associations in WinReg</h4>
+                        <p>Persistence technique through Windows Registry file association hijacking.</p>
+                        <a href="https://www.youtube.com/watch?v=876-reckwY8" target="_blank" class="watch-btn">
+                            <i class="fab fa-youtube"></i> Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="video-item" data-category="Forensics">
+                    <div class="video-thumb">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/2WOwqH2efJ4?si=ok49E6j-qfxSMpXa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                        <div class="play-btn">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <div class="video-duration">28:15</div>
+                    </div>
+                    <div class="video-details">
+                        <h4>Static Property-Based Signatures TryHackMe Walkthrough</h4>
+                        <p>Step-by-step guide to solving the TryHackMe Static Property-Based Signatures room.</p>
+                        <a href="https://www.youtube.com/watch?v=2WOwqH2efJ4" target="_blank" class="watch-btn">
+                            <i class="fab fa-youtube"></i> Watch on YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+                <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const videoItems = document.querySelectorAll('.video-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    const filterValue = button.textContent.trim();
+                    
+                    // Filter videos
+                    videoItems.forEach(item => {
+                        if (filterValue === 'All' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                            // Add slight delay for animation effect
+                            setTimeout(() => {
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+                });
+            });
+            
+            // Load more button functionality
+            const loadMoreBtn = document.querySelector('.load-more');
+            let visibleItems = 6; // Initially show 6 items
+            
+            // Initially hide items beyond the first 6
+            videoItems.forEach((item, index) => {
+                if (index >= visibleItems) {
+                    item.style.display = 'none';
+                }
+            });
+            
+            loadMoreBtn.addEventListener('click', () => {
+                visibleItems += 3;
+                
+                videoItems.forEach((item, index) => {
+                    if (index < visibleItems) {
+                        item.style.display = 'block';
+                        // Add animation for newly shown items
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'translateY(0)';
+                        }, 50);
+                    }
+                });
+                
+                // Hide load more button if all items are visible
+                if (visibleItems >= videoItems.length) {
+                    loadMoreBtn.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</section>
     
     <section id="tools">
       <div class="tools-content">
