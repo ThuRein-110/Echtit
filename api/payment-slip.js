@@ -236,7 +236,7 @@ module.exports = async function handler(request, response) {
     sendJson(response, 200, { ok: true, requestId });
   } catch (error) {
     const statusCode = Number(error.statusCode) || 500;
-    const publicError = statusCode >= 500 ? "submit_failed" : error.message || "request_failed";
+    const publicError = error.message === "service_not_configured" ? "service_not_configured" : statusCode >= 500 ? "submit_failed" : error.message || "request_failed";
     sendJson(response, statusCode, { ok: false, error: publicError });
   }
 };

@@ -87,6 +87,7 @@ const translations = {
     submitSlipSending: "Sending slip...",
     submitSlipSuccess: "Slip sent. Wait for approval and your private install package.",
     submitSlipError: "Could not send the slip. Check the image and try again.",
+    submitSlipNotConfigured: "Slip form is not connected yet. Message @zalon123 after payment.",
     submitSlipFileLarge: "Slip image must be 4 MB or smaller.",
     paidDeliveryNotice: "After approval, you receive the private install package and Hub setup link.",
     serviceLineOne: "Files stay inside your private Tailscale network.",
@@ -205,6 +206,7 @@ const translations = {
     submitSlipSending: "Slip ပို့နေပါသည်...",
     submitSlipSuccess: "Slip ပို့ပြီးပါပြီ။ Approve ပြီးပါက private install package ပို့ပါမည်။",
     submitSlipError: "Slip မပို့နိုင်ပါ။ ပုံကိုစစ်ပြီး ပြန်ကြိုးစားပါ။",
+    submitSlipNotConfigured: "Slip form မချိတ်ရသေးပါ။ ငွေပေးချေပြီးပါက @zalon123 သို့ message ပို့ပါ။",
     submitSlipFileLarge: "Slip ပုံသည် 4 MB သို့မဟုတ် ထက်နည်းရပါမည်။",
     paidDeliveryNotice: "Approve ပြီးပါက private install package နှင့် Hub setup link ပို့ပေးပါမည်။",
     serviceLineOne: "File များသည် သင့် private Tailscale network ထဲတွင်သာ ရှိသည်။",
@@ -522,6 +524,11 @@ function initPaymentFlow() {
       });
 
       if (!response.ok) {
+        const payload = await response.json().catch(() => ({}));
+        if (payload.error === "service_not_configured") {
+          setStatus("submitSlipNotConfigured", "error");
+          return;
+        }
         throw new Error("Payment slip submit failed");
       }
 
