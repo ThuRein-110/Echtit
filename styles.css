@@ -914,7 +914,7 @@ h3 {
 
 .qr-payment-card {
   display: grid;
-  grid-template-columns: 112px minmax(0, 1fr);
+  grid-template-columns: 156px minmax(0, 1fr);
   gap: 1rem;
   align-items: center;
   margin-top: 1rem;
@@ -932,6 +932,7 @@ h3 {
 }
 
 .qr-frame img {
+  display: block;
   width: 100%;
   aspect-ratio: 1;
   object-fit: contain;
@@ -1612,7 +1613,7 @@ html[lang="my"] .contact-inner p {
   }
 
   .qr-frame {
-    width: min(180px, 100%);
+    width: min(220px, 100%);
   }
 
   .service-button {
