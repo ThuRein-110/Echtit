@@ -17,9 +17,10 @@ You need:
 2. Click `Ready to pay`.
 3. Scan the TrueMoney QR in the popup.
 4. Pay the `$10` one-time down payment.
-5. Send the payment slip screenshot to Telegram: `@zalon123`.
+5. Fill the payment form with your name, Telegram username, and slip picture.
+6. Submit the form.
 
-Send this message with your slip:
+The form sends your slip to the `Paid User` Telegram bot for review:
 
 ```text
 Personal Device Hub payment slip
@@ -36,7 +37,8 @@ Access is approved only after the slip is manually checked. Wrong, reused, uncle
 After approval, you receive:
 
 - your Hub URL;
-- the setup command for your device;
+- the private install package for your operating system;
+- the setup command for each device;
 - Tailscale checklist;
 - help if your device does not appear in the dashboard.
 
@@ -70,7 +72,11 @@ Windows Administrator PowerShell is recommended for firewall and Live Screen set
 
 macOS:
 
-macOS setup is handled during private beta support. You will receive the matching command after approval.
+```sh
+curl -fsSL http://<your-hub-url>/agent/install-macos.sh | bash
+```
+
+macOS may ask for network permissions. Live Screen may also need Screen Recording permission.
 
 ## Open The Hub
 

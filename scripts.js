@@ -66,14 +66,29 @@ const translations = {
     paymentReadyNote: "The QR appears only in the payment popup.",
     qrEyebrow: "Thai QR Payment",
     qrTitle: "Scan TrueMoney for the $10 down payment",
-    qrText: "After payment, send the screenshot on Telegram with your Tailscale device list.",
+    qrText: "After payment, submit the form. It sends your slip to the Paid User Telegram bot.",
     slipCheckTitle: "Slip review required",
-    slipCheckText: "Access is approved only when the slip matches this TrueMoney account, the correct payment, and your Telegram message. Wrong or reused slips are denied.",
+    slipCheckText: "Access is approved only when the slip matches this TrueMoney account, the correct payment, and your form details. Wrong or reused slips are denied.",
     copyPaymentMessage: "Copy Telegram message",
     openTelegram: "Open Telegram",
     copied: "Copied",
     serviceButton: "Ask before paying",
     downloadSetupGuide: "Download install README",
+    buyerNameLabel: "Name",
+    buyerNamePlaceholder: "Your name",
+    buyerTelegramLabel: "Telegram username",
+    buyerTelegramPlaceholder: "@username",
+    buyerTailscaleLabel: "Tailscale email",
+    buyerTailscalePlaceholder: "you@example.com",
+    slipImageLabel: "Payment slip picture",
+    buyerDevicesLabel: "Devices to install",
+    buyerDevicesPlaceholder: "Windows laptop, MacBook, Ubuntu PC",
+    submitSlipButton: "Submit slip",
+    submitSlipSending: "Sending slip...",
+    submitSlipSuccess: "Slip sent. Wait for approval and your private install package.",
+    submitSlipError: "Could not send the slip. Check the image and try again.",
+    submitSlipFileLarge: "Slip image must be 4 MB or smaller.",
+    paidDeliveryNotice: "After approval, you receive the private install package and Hub setup link.",
     serviceLineOne: "Files stay inside your private Tailscale network.",
     serviceLineTwo: "Live Screen works with supported desktop agents.",
     serviceLineThree: "Bearer token auth and allowed-folder controls are built in.",
@@ -169,14 +184,29 @@ const translations = {
     paymentReadyNote: "QR ကို payment popup ထဲမှာပဲ ပြပါမည်။",
     qrEyebrow: "Thai QR Payment",
     qrTitle: "$10 down payment အတွက် TrueMoney ကို Scan လုပ်ပါ",
-    qrText: "ငွေပေးချေပြီးပါက screenshot နှင့် Tailscale device list ကို Telegram မှ ပို့ပါ။",
+    qrText: "ငွေပေးချေပြီးပါက form ကို submit လုပ်ပါ။ Slip ကို Paid User Telegram bot ဆီ ပို့ပေးပါမည်။",
     slipCheckTitle: "Slip စစ်ဆေးပြီးမှ approve",
-    slipCheckText: "Slip သည် ဤ TrueMoney account၊ မှန်ကန်သော payment နှင့် Telegram message တို့နှင့် ကိုက်ညီမှ access approve လုပ်ပါမည်။ မှားသော သို့မဟုတ် ပြန်သုံးထားသော slip များကို deny လုပ်ပါမည်။",
+    slipCheckText: "Slip သည် ဤ TrueMoney account၊ မှန်ကန်သော payment နှင့် form detail တို့နှင့် ကိုက်ညီမှ access approve လုပ်ပါမည်။ မှားသော သို့မဟုတ် ပြန်သုံးထားသော slip များကို deny လုပ်ပါမည်။",
     copyPaymentMessage: "Telegram message copy လုပ်ရန်",
     openTelegram: "Telegram ဖွင့်ရန်",
     copied: "Copy ပြီးပါပြီ",
     serviceButton: "မပေးခင် မေးရန်",
     downloadSetupGuide: "Install README download လုပ်ရန်",
+    buyerNameLabel: "နာမည်",
+    buyerNamePlaceholder: "သင့်နာမည်",
+    buyerTelegramLabel: "Telegram username",
+    buyerTelegramPlaceholder: "@username",
+    buyerTailscaleLabel: "Tailscale email",
+    buyerTailscalePlaceholder: "you@example.com",
+    slipImageLabel: "Payment slip ပုံ",
+    buyerDevicesLabel: "Install လုပ်မည့် device များ",
+    buyerDevicesPlaceholder: "Windows laptop, MacBook, Ubuntu PC",
+    submitSlipButton: "Slip ပို့ရန်",
+    submitSlipSending: "Slip ပို့နေပါသည်...",
+    submitSlipSuccess: "Slip ပို့ပြီးပါပြီ။ Approve ပြီးပါက private install package ပို့ပါမည်။",
+    submitSlipError: "Slip မပို့နိုင်ပါ။ ပုံကိုစစ်ပြီး ပြန်ကြိုးစားပါ။",
+    submitSlipFileLarge: "Slip ပုံသည် 4 MB သို့မဟုတ် ထက်နည်းရပါမည်။",
+    paidDeliveryNotice: "Approve ပြီးပါက private install package နှင့် Hub setup link ပို့ပေးပါမည်။",
     serviceLineOne: "File များသည် သင့် private Tailscale network ထဲတွင်သာ ရှိသည်။",
     serviceLineTwo: "Live Screen သည် support ရှိသော desktop agent များနှင့်အလုပ်လုပ်သည်။",
     serviceLineThree: "Bearer token auth နှင့် allowed-folder control ပါဝင်သည်။",
@@ -209,23 +239,6 @@ const translations = {
   },
 };
 
-const paymentMessageTemplates = {
-  en: [
-    "Personal Device Hub payment slip",
-    "I paid the $10 down payment.",
-    "Tailscale account/email:",
-    "Device list:",
-    "Preferred Hub URL/name:"
-  ].join("\n"),
-  mm: [
-    "Personal Device Hub payment slip",
-    "$10 down payment ပေးပြီးပါပြီ။",
-    "Tailscale account/email:",
-    "Device list:",
-    "လိုချင်သော Hub URL/name:"
-  ].join("\n"),
-};
-
 function applyLanguage(language) {
   const activeLanguage = translations[language] ? language : "en";
   document.documentElement.lang = activeLanguage === "mm" ? "my" : "en";
@@ -235,6 +248,11 @@ function applyLanguage(language) {
     element.textContent = translations[activeLanguage][key] || translations.en[key] || element.textContent;
   });
 
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    const key = element.dataset.i18nPlaceholder;
+    element.setAttribute("placeholder", translations[activeLanguage][key] || translations.en[key] || element.getAttribute("placeholder") || "");
+  });
+
   document.querySelectorAll("[data-lang-button]").forEach((button) => {
     const isActive = button.dataset.langButton === activeLanguage;
     button.classList.toggle("active", isActive);
@@ -242,6 +260,11 @@ function applyLanguage(language) {
   });
 
   localStorage.setItem("echtit-language", activeLanguage);
+}
+
+function getActiveLanguage() {
+  const savedLanguage = localStorage.getItem("echtit-language");
+  return translations[savedLanguage] ? savedLanguage : "en";
 }
 
 function initNavigation() {
@@ -409,8 +432,9 @@ function initCursor() {
 function initPaymentFlow() {
   const toggle = document.querySelector("[data-payment-toggle]");
   const panel = document.querySelector("[data-payment-panel]");
-  const copyButton = document.querySelector("[data-copy-payment-message]");
   const closeControls = document.querySelectorAll("[data-payment-close]");
+  const form = document.querySelector("[data-payment-form]");
+  const status = document.querySelector("[data-payment-status]");
 
   if (!toggle || !panel) {
     return;
@@ -449,26 +473,69 @@ function initPaymentFlow() {
     }
   });
 
-  if (!copyButton) {
+  if (!(form instanceof HTMLFormElement)) {
     return;
   }
 
-  copyButton.addEventListener("click", async () => {
-    const language = translations[localStorage.getItem("echtit-language")] ? localStorage.getItem("echtit-language") : "en";
-    const message = paymentMessageTemplates[language] || paymentMessageTemplates.en;
-    const label = copyButton.querySelector("[data-i18n]");
+  const submitButton = form.querySelector("button[type='submit']");
+  const submitLabel = submitButton?.querySelector("[data-i18n]");
+  const fileInput = form.querySelector("input[name='slip']");
+
+  const setStatus = (key, mode = "neutral") => {
+    if (!status) {
+      return;
+    }
+
+    const language = getActiveLanguage();
+    status.textContent = translations[language][key] || translations.en[key] || "";
+    status.dataset.mode = mode;
+  };
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!(fileInput instanceof HTMLInputElement) || !fileInput.files?.[0]) {
+      setStatus("submitSlipError", "error");
+      return;
+    }
+
+    if (fileInput.files[0].size > 4 * 1024 * 1024) {
+      setStatus("submitSlipFileLarge", "error");
+      return;
+    }
+
+    const language = getActiveLanguage();
+    const originalLabel = submitLabel?.textContent || "";
+
+    if (submitButton instanceof HTMLButtonElement) {
+      submitButton.disabled = true;
+    }
+    if (submitLabel) {
+      submitLabel.textContent = translations[language].submitSlipSending || translations.en.submitSlipSending;
+    }
+    setStatus("submitSlipSending");
 
     try {
-      await navigator.clipboard.writeText(message);
-      if (label) {
-        const original = label.textContent;
-        label.textContent = translations[language].copied || translations.en.copied;
-        window.setTimeout(() => {
-          label.textContent = original;
-        }, 1600);
+      const response = await fetch("/api/payment-slip", {
+        method: "POST",
+        body: new FormData(form)
+      });
+
+      if (!response.ok) {
+        throw new Error("Payment slip submit failed");
       }
+
+      form.reset();
+      setStatus("submitSlipSuccess", "success");
     } catch {
-      window.prompt("Copy message", message);
+      setStatus("submitSlipError", "error");
+    } finally {
+      if (submitButton instanceof HTMLButtonElement) {
+        submitButton.disabled = false;
+      }
+      if (submitLabel) {
+        submitLabel.textContent = originalLabel || translations[getActiveLanguage()].submitSlipButton || translations.en.submitSlipButton;
+      }
     }
   });
 }

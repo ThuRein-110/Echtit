@@ -256,21 +256,40 @@
         <div>
           <span class="eyebrow" data-i18n="qrEyebrow">Thai QR Payment</span>
           <h3 id="payment-dialog-title" data-i18n="qrTitle">Scan TrueMoney for the $10 down payment</h3>
-          <p data-i18n="qrText">After payment, send the screenshot on Telegram with your Tailscale device list.</p>
+          <p data-i18n="qrText">After payment, submit the form. It sends your slip to the Paid User Telegram bot.</p>
           <div class="slip-check">
             <strong data-i18n="slipCheckTitle">Slip review required</strong>
-            <p data-i18n="slipCheckText">Access is approved only when the slip matches this TrueMoney account, the correct payment, and your Telegram message. Wrong or reused slips are denied.</p>
+            <p data-i18n="slipCheckText">Access is approved only when the slip matches this TrueMoney account, the correct payment, and your form details. Wrong or reused slips are denied.</p>
           </div>
-          <div class="payment-actions">
-            <button class="secondary-button compact" type="button" data-copy-payment-message>
-              <i class="fas fa-copy" aria-hidden="true"></i>
-              <span data-i18n="copyPaymentMessage">Copy Telegram message</span>
+          <form class="payment-form" data-payment-form enctype="multipart/form-data">
+            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <label>
+              <span data-i18n="buyerNameLabel">Name</span>
+              <input type="text" name="name" maxlength="80" autocomplete="name" required data-i18n-placeholder="buyerNamePlaceholder" placeholder="Your name">
+            </label>
+            <label>
+              <span data-i18n="buyerTelegramLabel">Telegram username</span>
+              <input type="text" name="telegram" maxlength="80" autocomplete="off" required data-i18n-placeholder="buyerTelegramPlaceholder" placeholder="@username">
+            </label>
+            <label>
+              <span data-i18n="buyerTailscaleLabel">Tailscale email</span>
+              <input type="email" name="tailscaleEmail" maxlength="120" autocomplete="email" data-i18n-placeholder="buyerTailscalePlaceholder" placeholder="you@example.com">
+            </label>
+            <label>
+              <span data-i18n="slipImageLabel">Payment slip picture</span>
+              <input type="file" name="slip" accept="image/jpeg,image/png,image/webp" required>
+            </label>
+            <label>
+              <span data-i18n="buyerDevicesLabel">Devices to install</span>
+              <textarea name="devices" maxlength="500" rows="3" data-i18n-placeholder="buyerDevicesPlaceholder" placeholder="Windows laptop, MacBook, Ubuntu PC"></textarea>
+            </label>
+            <button class="primary-button compact" type="submit">
+              <i class="fas fa-paper-plane" aria-hidden="true"></i>
+              <span data-i18n="submitSlipButton">Submit slip</span>
             </button>
-            <a class="primary-button compact" href="https://t.me/zalon123" target="_blank" rel="noopener">
-              <i class="fab fa-telegram" aria-hidden="true"></i>
-              <span data-i18n="openTelegram">Open Telegram</span>
-            </a>
-          </div>
+            <p class="form-status" data-payment-status role="status" aria-live="polite"></p>
+            <small data-i18n="paidDeliveryNotice">After approval, you receive the private install package and Hub setup link.</small>
+          </form>
         </div>
       </section>
     </div>
