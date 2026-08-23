@@ -224,20 +224,49 @@
               <small data-i18n="servicePriceNote">Tailscale is required. Pay once for private beta setup access.</small>
             </div>
 
-            <div class="qr-payment-card" aria-label="Personal Device Hub QR payment">
+            <ol class="payment-steps" aria-label="Personal Device Hub payment steps">
+              <li data-i18n="paymentStepOne">Install or open Tailscale first.</li>
+              <li data-i18n="paymentStepTwo">Click Ready to pay when you are prepared to scan.</li>
+              <li data-i18n="paymentStepThree">Send the payment slip on Telegram.</li>
+              <li data-i18n="paymentStepFour">After approval, receive your Hub URL and setup help.</li>
+            </ol>
+
+            <div class="payment-gate">
+              <button class="secondary-button payment-ready-button" type="button" data-payment-toggle aria-expanded="false">
+                <i class="fas fa-qrcode" aria-hidden="true"></i>
+                <span data-i18n="paymentReadyButton">Ready to pay</span>
+              </button>
+              <small data-i18n="paymentReadyNote">The QR appears only when you are ready to pay.</small>
+            </div>
+
+            <div class="qr-payment-card" aria-label="Personal Device Hub QR payment" data-payment-panel hidden>
               <div class="qr-frame">
-                <img src="./img/personal-hub-thai-payment-qr.jpg" alt="TrueMoney Thai QR payment for Personal Device Hub">
+                <img data-qr-src="./img/personal-hub-thai-payment-qr.jpg" alt="TrueMoney Thai QR payment for Personal Device Hub">
               </div>
               <div>
                 <span data-i18n="qrEyebrow">Thai QR Payment</span>
                 <strong data-i18n="qrTitle">Scan TrueMoney for the $10 down payment</strong>
                 <p data-i18n="qrText">After payment, send the screenshot on Telegram with your Tailscale device list.</p>
+                <div class="slip-check">
+                  <strong data-i18n="slipCheckTitle">Slip review required</strong>
+                  <p data-i18n="slipCheckText">Access is approved only when the slip matches this TrueMoney account, the correct payment, and your Telegram message. Wrong or reused slips are denied.</p>
+                </div>
+                <div class="payment-actions">
+                  <button class="secondary-button compact" type="button" data-copy-payment-message>
+                    <i class="fas fa-copy" aria-hidden="true"></i>
+                    <span data-i18n="copyPaymentMessage">Copy Telegram message</span>
+                  </button>
+                  <a class="primary-button compact" href="https://t.me/zalon123" target="_blank" rel="noopener">
+                    <i class="fab fa-telegram" aria-hidden="true"></i>
+                    <span data-i18n="openTelegram">Open Telegram</span>
+                  </a>
+                </div>
               </div>
             </div>
 
             <a class="primary-button service-button" href="https://t.me/zalon123" target="_blank" rel="noopener">
               <i class="fab fa-telegram" aria-hidden="true"></i>
-              <span data-i18n="serviceButton">Send payment screenshot</span>
+              <span data-i18n="serviceButton">Ask before paying</span>
             </a>
           </article>
 

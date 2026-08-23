@@ -58,10 +58,21 @@ const translations = {
     servicePriceLabel: "One-time down payment",
     servicePrice: "$10",
     servicePriceNote: "Tailscale is required. Pay once for private beta setup access.",
+    paymentStepOne: "Install or open Tailscale first.",
+    paymentStepTwo: "Click Ready to pay when you are prepared to scan.",
+    paymentStepThree: "Send the payment slip on Telegram.",
+    paymentStepFour: "After approval, receive your Hub URL and setup help.",
+    paymentReadyButton: "Ready to pay",
+    paymentReadyNote: "The QR appears only when you are ready to pay.",
     qrEyebrow: "Thai QR Payment",
     qrTitle: "Scan TrueMoney for the $10 down payment",
     qrText: "After payment, send the screenshot on Telegram with your Tailscale device list.",
-    serviceButton: "Send payment screenshot",
+    slipCheckTitle: "Slip review required",
+    slipCheckText: "Access is approved only when the slip matches this TrueMoney account, the correct payment, and your Telegram message. Wrong or reused slips are denied.",
+    copyPaymentMessage: "Copy Telegram message",
+    openTelegram: "Open Telegram",
+    copied: "Copied",
+    serviceButton: "Ask before paying",
     serviceLineOne: "Files stay inside your private Tailscale network.",
     serviceLineTwo: "Live Screen works with supported desktop agents.",
     serviceLineThree: "Bearer token auth and allowed-folder controls are built in.",
@@ -149,10 +160,21 @@ const translations = {
     servicePriceLabel: "တစ်ကြိမ် down payment",
     servicePrice: "$10",
     servicePriceNote: "Tailscale လိုအပ်သည်။ Private beta setup access အတွက် တစ်ကြိမ်သာ ပေးချေရန်။",
+    paymentStepOne: "Tailscale ကို အရင် install/open လုပ်ပါ။",
+    paymentStepTwo: "Scan လုပ်ရန် အသင့်ဖြစ်မှ Ready to pay ကို နှိပ်ပါ။",
+    paymentStepThree: "Payment slip ကို Telegram မှ ပို့ပါ။",
+    paymentStepFour: "Approve ပြီးပါက Hub URL နှင့် setup help ပို့ပေးပါမည်။",
+    paymentReadyButton: "ပေးချေရန် အသင့်ဖြစ်ပြီ",
+    paymentReadyNote: "ပေးချေရန် အသင့်ဖြစ်မှ QR ကို ပြပါမည်။",
     qrEyebrow: "Thai QR Payment",
     qrTitle: "$10 down payment အတွက် TrueMoney ကို Scan လုပ်ပါ",
     qrText: "ငွေပေးချေပြီးပါက screenshot နှင့် Tailscale device list ကို Telegram မှ ပို့ပါ။",
-    serviceButton: "Payment screenshot ပို့ရန်",
+    slipCheckTitle: "Slip စစ်ဆေးပြီးမှ approve",
+    slipCheckText: "Slip သည် ဤ TrueMoney account၊ မှန်ကန်သော payment နှင့် Telegram message တို့နှင့် ကိုက်ညီမှ access approve လုပ်ပါမည်။ မှားသော သို့မဟုတ် ပြန်သုံးထားသော slip များကို deny လုပ်ပါမည်။",
+    copyPaymentMessage: "Telegram message copy လုပ်ရန်",
+    openTelegram: "Telegram ဖွင့်ရန်",
+    copied: "Copy ပြီးပါပြီ",
+    serviceButton: "မပေးခင် မေးရန်",
     serviceLineOne: "File များသည် သင့် private Tailscale network ထဲတွင်သာ ရှိသည်။",
     serviceLineTwo: "Live Screen သည် support ရှိသော desktop agent များနှင့်အလုပ်လုပ်သည်။",
     serviceLineThree: "Bearer token auth နှင့် allowed-folder control ပါဝင်သည်။",
@@ -183,6 +205,23 @@ const translations = {
     contactText: "Access နှင့် payment ကို Telegram မှ။",
     contactButton: "@zalon123 သို့ Message ပို့ရန်",
   },
+};
+
+const paymentMessageTemplates = {
+  en: [
+    "Personal Device Hub payment slip",
+    "I paid the $10 down payment.",
+    "Tailscale account/email:",
+    "Device list:",
+    "Preferred Hub URL/name:"
+  ].join("\n"),
+  mm: [
+    "Personal Device Hub payment slip",
+    "$10 down payment ပေးပြီးပါပြီ။",
+    "Tailscale account/email:",
+    "Device list:",
+    "လိုချင်သော Hub URL/name:"
+  ].join("\n"),
 };
 
 function applyLanguage(language) {
@@ -365,6 +404,51 @@ function initCursor() {
   });
 }
 
+function initPaymentFlow() {
+  const toggle = document.querySelector("[data-payment-toggle]");
+  const panel = document.querySelector("[data-payment-panel]");
+  const copyButton = document.querySelector("[data-copy-payment-message]");
+
+  if (!toggle || !panel) {
+    return;
+  }
+
+  const qrImage = panel.querySelector("[data-qr-src]");
+
+  toggle.addEventListener("click", () => {
+    if (qrImage && !qrImage.getAttribute("src")) {
+      qrImage.setAttribute("src", qrImage.dataset.qrSrc);
+    }
+
+    panel.hidden = false;
+    toggle.setAttribute("aria-expanded", "true");
+    panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  });
+
+  if (!copyButton) {
+    return;
+  }
+
+  copyButton.addEventListener("click", async () => {
+    const language = translations[localStorage.getItem("echtit-language")] ? localStorage.getItem("echtit-language") : "en";
+    const message = paymentMessageTemplates[language] || paymentMessageTemplates.en;
+    const label = copyButton.querySelector("[data-i18n]");
+
+    try {
+      await navigator.clipboard.writeText(message);
+      if (label) {
+        const original = label.textContent;
+        label.textContent = translations[language].copied || translations.en.copied;
+        window.setTimeout(() => {
+          label.textContent = original;
+        }, 1600);
+      }
+    } catch {
+      window.prompt("Copy message", message);
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const savedLanguage = localStorage.getItem("echtit-language") || "en";
   applyLanguage(savedLanguage);
@@ -376,4 +460,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavigation();
   initReveal();
   initCursor();
+  initPaymentFlow();
 });
