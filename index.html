@@ -3,508 +3,361 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Echtit</title>
+  <meta name="description" content="Echtit is a cybersecurity learning organization sharing courses, writeups, and videos.">
+  <title>Echtit | Cybersecurity Courses and Writeups</title>
+  <link rel="icon" href="./img/echtit-logo-transparent.png">
   <link rel="stylesheet" href="styles.css">
-  <script src="scripts.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="scripts.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-</head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="header-left">
-                <h1>Echtit</h1>
-                <img src="https://placehold.co/40x40/4f46e5/white?text=E" alt="Logo">
-            </div>
-           <div class="header-right">
-  <button class="menu-toggle" type="button">☰</button>
-  <nav>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#blog">Blog</a></li>
-      <li><a href="#vlog">Vlog</a></li>
-      <li><a href="#tools">Tools</a></li>
-    </ul>
-  </nav>
-</div>
+  <header class="site-header" data-header>
+    <div class="header-inner">
+      <a class="brand" href="#home" aria-label="Echtit home">
+        <img src="./img/echtit-logo-transparent.png" alt="Echtit logo">
+        <span>Echtit</span>
+      </a>
 
+      <button class="menu-button" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="#course" data-nav-link data-i18n="navCourse">Course</a>
+        <a href="#services" data-nav-link data-i18n="navServices">Services</a>
+        <a href="#work" data-nav-link data-i18n="navWork">Work</a>
+        <a href="#contact" data-nav-link data-i18n="navContact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language selector">
+          <button type="button" class="active" data-lang-button="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang-button="mm" aria-pressed="false">MM</button>
         </div>
-         
-    </header>
+        <a class="header-cta" href="https://t.me/zalon123" target="_blank" rel="noopener">
+          <i class="fab fa-telegram" aria-hidden="true"></i>
+          <span data-i18n="navEnroll">Enroll</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
   <main>
-    
-      
-      <section id="about">
-        <div class="about-content">
-          <div style="padding-top: 1in;"></div>
-          <h2>Welcome to our page!</h2>
-          <p>We are passionate about sharing insights and knowledge on red teaming and cybersecurity. Our team is dedicated to providing valuable resources, training, and updates on the latest trends in the cybersecurity field. Whether you're a seasoned professional or just starting out, we aim to be your go-to source for all things red teaming and cybersecurity.</p>
-          <h3>Key Points:</h3>
-          <ul>
-            <li>Passionate about sharing insights and knowledge</li>
-            <li>Dedicated to providing valuable resources, training, and updates</li>
-            <li>Go-to source for all things red teaming and cybersecurity</li>
-          </ul>
-        </div>
-      </section>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="heroEyebrow">Cybersecurity Learning</p>
+          <h1 data-i18n="heroTitle">Echtit. Practice first.</h1>
+          <p class="hero-text" data-i18n="heroText">Courses, writeups, videos.</p>
 
+          <div class="hero-actions">
+            <a class="primary-button" href="#course">
+              <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+              <span data-i18n="heroCourseButton">Current course</span>
+            </a>
+            <a class="secondary-button" href="#work">
+              <span data-i18n="heroWorkLink">Selected work</span>
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
 
-      <section id="blog">
-      <h2 class="title-header">Blog</h2>
-      <div class="card-row">
-        <div class="card">
-          <h3>Why should we use print() instead of alert()</h3>
-          <img src="./img/XSS Attack.png" alt="Image 6">
-          <div class="card-content">
-            <p class="excerpt">XSS vulnerability ပေါက်နေတာမျိုးတွေ တွေ့တဲ့အခါ များသောအားဖြင့် ကျွန်တော်တို့က alert() function ကိုပဲအသုံးများပေမယ့် အကယ်၍ ကျွန်တော်တို့က Chrome version ကိုမှ 92 (20 july 2021)ထက် update version ဖြစ်ပြီးသုံးနေမယ်ဆိုရင်တော့ Chrome ကနေပြီး alert() functionခေါ်လို့ရမှာမဟုတ်တော့ပါဘူး။
-            </p>
-            <p class="full-text">အဲ့တာကြောင့် Google chrome version date 20 july 2021ကနေစပြီး XSS PoCsပြဖို့အတွက် alert() function ပြီးတော့ ping back လုပ်တာမျိုးတွေကိုလည်း Chrome ရဲ့ javascript obfuscators ကနေပြီးတော့ disable လုပ်တော့ console.log() ကိုလည်း သုံးလို့မရနိုင်ပါဘူး။</p>
-            <a href="https://medium.com/@thureinstudent18/why-should-we-use-print-instead-of-alert-6f888e06f8db" class="read-more">Read more</a>
+          <div class="hero-metrics" aria-label="Echtit highlights">
+            <div>
+              <strong>01</strong>
+              <span data-i18n="metricCourse">Current paid course</span>
+            </div>
+            <div>
+              <strong>03</strong>
+              <span data-i18n="metricWork">Work previews</span>
+            </div>
+            <div>
+              <strong>TG</strong>
+              <span data-i18n="metricDelivery">Telegram</span>
+            </div>
           </div>
         </div>
-        <div class="card">
-          <h3>Windows system on linux</h3>
-          <img src="./img/wsl.webp" alt="Image 2">
-          <div class="card-content">
-            <p class="excerpt">Wsl ဆိုတာကတော့ window ပေါ်မာကိုပဲ features တစ်ခုအနေနဲ့ linux (GUIတော့မဟုတ်ပါ) ကို သုံးလို့ အဆင်ပြေအောင် Microsoft company က၂၀၁၆ ခုနစ်မှာ compatibility layer တစ်ခု ဖြစ်ပါတယ်။</p>
-            <p class="full-text">Usage အနေနဲ့ကတော့ linux ကိုလည်း မပြောင်းချင်သေးဘူး ဒါပေမယ့် linux command line ကိုလည်း PCမှာစမ်းသုံးကြည့် ချင်တယ် ဆိုတဲ့ သူတွေ အတွက်တော်တော်အဆင်ပြေတဲ့ tools တစ်ခုပါ ဘာလို့လည်း ဆိုတော့ အဲ့ဒီမာ ကိုသုံးချင်တဲ့ OS (ubuntu, debian, kali) စသဖြင့် os system ပေါင်း များစွာရှိတော့ တစ်ခုပီဲးတစ်ခု လှည့်သ◌ုံးလို့လည်း ရတာပေါ့။</p>
-            <a href="https://medium.com/@thureinstudent18/wsl-windows-subsystem-for-linux-2144bb330a69" class="read-more">Read more</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Linux Before Linux</h3>
-          <img src="./img/linuxbeforelinux.webp" alt="Image 3">
-          <div class="card-content">
-            <p class="excerpt">windows ကနေ linux ပြောင်းမယ်ဆိုရင် main OSအနေနဲ့ မသုံးခင် vmware ဖြစ်ဖြစ် visual box မာဖြစ်ဖြစ် ၁ပတ်လောက်တော့ စမ်းသုံးကြည့်သင့်တယ်ထင်တယ် မဟုတ်ရင်ပြီးမှ အဆင်မပြေရင် တိုင်တော်တော်ပတ်ပါတယ်။</p>
-            <p class="full-text">When we want to use linux Operating system, we should use in a Vmware or visual box for a week if not we can have a problems in their command or GUI(such as Arch linux).</p>
-            <a href="https://medium.com/@thureinstudent18/linux-before-linux-8ba77167588e" class="read-more">Read more</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Pseudocode</h3>
-          <img src="./img/pseudo.webp" alt="Image 4">
-          <div class="card-content">
-            <p class="excerpt">Programing language basic မပြောနဲ့ computer basic တောင်မသိကြတဲ့ သူတွေအနေနဲ့ သင်တန်းတွေ မတက်ခင် အရင်လုပ်ရမယ့် အရာကို အကြံပေးဆိုရင် အခုတလောပြန်ဖြေတဲ့ အဖြေကတော့ Youtube or free website တွေကနေ အရင် ကိုယ်နဲ့ သင့်တော်တဲ့ language ကို လေ့လာကြည့်ပါ</p>
-            <p class="full-text">For those who don’t even know programming language basics, let alone computer basics, if you advise what to do first before attending the courses, the current answer is to learn the language that suits you first from YouTube or free websites. Lately, more and more students don’t teach pseudocode deskchecking concepts because they say they don’t need them, so the trainees also put less effort into thinking. That’s why I’m going to study programming now.</p>
-            <a href="https://medium.com/@thureinstudent18/pseudocode-99ddbabdab06" class="read-more">Read more</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>HDD volume Hiding Technique</h3>
-          <img src="./img/volumehiding.webp" alt="Image 5">
-          <div class="card-content">
-            <p class="excerpt">ပထမဆုံး ကျွန်တော်တို့ hidden လုပ်ချင်တဲ့ volume ကို သိရပါမယ် အခုတော့ ကျွန်တော့်မှာ volume မရှိသေးတဲ့အတွက် volume တစ်ခုတည်ဆောက်ဖို့ လက်ရှိ ရှိနေတဲ့ C ကနေ partition ခွဲပြီး Dဆိုပြီး volume တစ်ခုတည်ဆောက်လိုက်ပါမယ်။</p>
-            <p class="full-text">လက်ရှိ Cထဲကနေ နောက် volume တစ်ခု တည်ဆောက်ဖို့ဆို ကျွန်တော်တို့ shrink volumeလုပ်ရမယ် ပြီးရင်တော့ တဆင့်ချင်းဆီ custom လုပ်ပြီးတော့ volume တစ်ခု တည်ဆောက်ထားလိုက်ပါမယ်။ </p>
-            <a href="https://medium.com/@thureinstudent18/hdd-volume-hiding-technique-a9e026db517a" class="read-more">Read more</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Flipper Zero Setup</h3>
-          <img src="./img/flipper.webp" alt="Image 6">
-          <div class="card-content">
-            <p class="excerpt">Unboxing တွေ ဘာတွေတော့ အရမ်းထူးထူး ခြားခြားမရှိလို့ ကျော်လိုက်ကြတာပေါ့ flipper zero လည်းလက်ထဲရောက်နေပြီ ဆိုရင် sd card ထည့် original USB နဲ့ PCနဲ့ ချိတ်လို့ပြီးသွားရင် ပထမဆုံး အနေနဲ့ https://flipperzero.one/update ကနေ flipper ကို download လုပ်ပြီး pc ကနေ file import and update လုပ်ဖို့ downလိုက်ရင် ကျွန်တော်တို့ flipper ကို pc က နေ control access ရပါလိမ့်မယ် update လုပ်ပြိးသွားလို့ external sourcesတွေ ထည့်ချင်ရင်တော့</p>
-            <p class="full-text">https://github.com/UberGuidoZ/Flipper ဒီကနေ git clone to github desktop နဲ့ ဆိုရင် အခြေခံ လိုအပ်တဲ့ package တွေတော့ အဆင်ပြေသွားပါလိမ့်မယ်။ git clone steps မှာ git clone ကို Vscode နဲ့ terminal မာ clone ရင် တော့ antivirus and firewall ကို off ထားရပါမယ် zip file အနေနဲ့ down ရင်လည်း အချိန်တကယ် ကြာပါတယ် ကျွန်တော့်တုန်းက စမ်းတုန်းကတော့ 5နာရီလောက်ကြာတဲ့ အတွက် github desktop မာပဲ clone လုပ်စေချင်ပါတယ်။</p>
-            <a href="https://medium.com/@thureinstudent18/flipper-zero-setup-mm-version-971edced1ddb" class="read-more">Read more</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>IPv6 ရဲ့ vulnerability (အားနည်းချက်)</h3>
-          <img src="./img/IPV6.png" alt="Image 6">
-          <div class="card-content">
-            <p class="excerpt">IPv4 address နည်းလာတဲ့ အတွက် IPv6 ကိုသုံးလာကြရတဲ့ အခါ IPv6 ရဲ့ လုံခြုံရေး အားနည်းချက်တခုကို သိထားဖို့ လိုအပ်လာပါတယ်။ </p>
-            <p class="full-text">ကျွန်တော်တို့တွေ အရင်ကဆို Windows ရဲ့ IPv6 feature ကို Network Card Properties မှာ သွားပြီး Disable လုပ်ကြတာကို မှတ်မိကြမယ်ထင်ပါတယ်။ 
-              အဲတုန်းကဆို ဘာလို့လုပ်လဲ ဆိုတာ သိပ်နားမလည်ဘူး။
-              တကယ်က ဒီလိုဗျ IPv4 ကော IPv6 ကော 2 မျိုးစလုံး သုံးထားတဲ့ Host တခု (သို့မဟုတ်) IPv6 သုံးထားတဲ့ Host တခုက Network ကို ချိတ်ပြီဆိုတာနဲ့ သူက IPv6 enable လုပ်ထားတဲ့ Router ဆီကို ICMPv6 (type 133) Router Solicitation (RS) message ကို ပို့ပါတယ်။</p>
-            <a href="https://medium.com/@thureinstudent18/ipv6-%E1%80%9B%E1%80%B2%E1%80%B7-vulnerability-%E1%80%A1%E1%80%AC%E1%80%B8%E1%80%94%E1%80%8A%E1%80%BA%E1%80%B8%E1%80%81%E1%80%BB%E1%80%80%E1%80%BA-6b311cc74f2b" class="read-more">Read more</a>
-          </div>
-        </div>
-        
-        <div class="card">
-          <h3>How to find sensative data in wireshark</h3>
-          <img src="./img/wireshark.jpg" alt="Image 6">
-          <div class="card-content">
-            <p class="excerpt">အခုတစ်ခေါက်မှာတော့ ကျွန်တော်က same network ဖြစ်နေတဲ့ devices တွေမှာ Login data ပါတဲ့ packagesတွေကို ဖမ်းပြီးရင် search barမှာ ဘယ်လိုရှာရလည်းဆိုတာကို ပြောပြချင်တာပါ။
-            </p>
-            <p class="full-text">အရင်ဆုံး wiresharkဖွင့်ထားပြီး 1ogin testing page တစ်ခုဖြစ်တဲ့ http://testphp.vulnweb.com/login.php မှာ စမ်းထည့်ကြည့်ပါမယ်။ ပြီးရင်တော့ ကျွန်တော်တို့ wiresharkကို stopလုပ်ပြီးတော့ File ကို saveလုပ်လိုက်ပါ ပြီးရင်တော့ ကျွန်တော်တို့ အဲ့ file ကို ပြန်ဖွင့်ပြီး search barမှာ http.request.method=="POST"ဆိုပြီးရှာလိုက်ရင် login dataတွေကို တွေ့နိုင်မှာပါ။</p>
-            <a href="https://medium.com/@thureinstudent18/wireshark-%E1%80%99%E1%80%BE%E1%80%AC-user-credential-data%E1%80%90%E1%80%BD%E1%80%B1%E1%80%80%E1%80%AD%E1%80%AF-%E1%80%98%E1%80%9A%E1%80%BA%E1%80%9C%E1%80%AD%E1%80%AF%E1%80%9B%E1%80%BE%E1%80%AC%E1%80%9B%E1%80%99%E1%80%9C%E1%80%8A%E1%80%BA%E1%80%B8%E1%80%9C%E1%80%B1%E1%80%B8%E1%80%80%E1%80%AD%E1%80%AF-sharing-%E1%80%9C%E1%80%B1%E1%80%B8%E1%80%9C%E1%80%AF%E1%80%95%E1%80%BA%E1%80%95%E1%80%B1%E1%80%B8%E1%80%81%E1%80%BB%E1%80%84%E1%80%BA%E1%80%9C%E1%80%AD%E1%80%AF%E1%80%B7%E1%80%95%E1%80%AB-d24e7fc24333" class="read-more">Read more</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Hijacking File Associations</h3>
-          <img src="./img/hijack.jpg" alt="Image 6">
-          <div class="card-content">
-            <p class="excerpt">ဒီမှာဆိုရင် ပုံမှန် reverse shellဆိုတာထက် ကျွန်တော်သဘောကျတဲ့အပိုင်းကတော့ winRegမှာ Value dataကို ဝင်ပြင်ပြီးတော့ file typeတစ်ခုခုကို targetထားပြီး တော့ ဉပမာ txt fileဆိုရင်လည်း ကျွန်တော်တို့ရဲ့ Local Machineမာ ဘယ်txtကိုနိပ်ရင်ပဲ ဖြစ်ဖြစ် reverse shellကို ပြန်forwardလုပ်သွားမှာပါ။
-              ပထမ အနေနဲ့ဆိုရင် ကျွန်တော်တို့ လုပ်ချင်တဲ့ file typeကို အရင်ရွေးကြရပါမယ် WinRegထဲကနေ file extensionကိုရွေးပြီးတော့ ProgIDကိုရှာပြီးရင် ProgID folder အောက်က openမှာ ကျွန်တော်တို့ data valueကိုပြင်ကြရပါမယ်။ ပြင်တဲ့အခါမှာလည်း createdလုပ်ထားတဲ့ revershell ပါတဲ့ powershell file ကို file pathမှာ ထားလိုက်ပါမယ်။ 
-            </p>
-            <p class="full-text">ပြီးရင်တော့ ကျွန်တော်တို့ အနေနဲ့ local machine မှာရှိတဲ့ ဘယ် txt fileမဆို ဖွင့်လိုက်ရုံနဲ့ ကျွန်တော်တို့က listenလုပ်နေတယ်ဆိုရင် reverseshell connectဖြစ်သွားပါလိမ့်မယ်။</p>
-            <a href="https://www.youtube.com/watch?v=876-reckwY8" class="read-more">POC video</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Forensics Labs Walkthrough</h3>
-          <img src="./img/forensics.jpg" alt="Image 6">
-          <div class="card-content">
-            <p class="excerpt">Excited to share my progress on CTFLearn forensic labs! I've completed 19 live walkthroughs, covering various challenges, and streamed them on both YouTube and Twitch. Since they were live sessions, you’ll also see the errors and troubleshooting I encountered along the way. 
-            </p>
-            <p class="full-text"></p>
-            <a href="https://www.youtube.com/playlist?list=PLrVtoQTNDIPdp8eVac_yL-Y5Mvi_hMra7" class="read-more">POC video</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Browser Forensics</h3>
-          <img src="./img/browser forensics.jpg" alt="Image 6">
-          <div class="card-content">
-            <p class="excerpt">အခုအပိုင်းမှာတော့ ကျွန်တော်က ပုံမှန်ဝင်လေ့ဝင်ထရှိတာနဲ့ ဝင်ကြပြီးတော့ historyကိုပြန်ဖျက်တဲ့အခါမှာ browser historyမှာ တော့ ကျွန်တော်တို့ရဲ့ recent website historyက ပျက်သွားပေမယ့် ကျွန်တော်တို့ရဲ့ Web historyတွေကိုသိမ်းတဲ့ File pathဖြစ်တဲ့ 
-              “C:\Users\[username]\AppData\Local\Google\Chrome\User Data\Default\History” (Chrome Data) 
-              “C:\Users\[username]\AppData\Roaming\Mozilla\Firefox\Profiles\[randomfoldername]\places.sqlite” on Firefox </p>
-            <p class="full-text"></p>
-            <a href="https://lavish-birth-09a.notion.site/Browser-Forensics-1f7f1f756b4149bda507e8d962f12e04" class="read-more">notion link</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Powershell in security</h3>
-          <img src="./img/powershell.jpg" alt="Image 6">
-          <div class="card-content">
-            <p class="excerpt">ဒီအောက်က Noteထဲမှာဆိုရင်တော့ အဓိက အားဖြင့်ကတော့ powershell Commandတွေရဲ့ Usage တွေကို ရှင်းပြထားပါတယ်။
-              ပုံမှန်ဆိုရင် ကျွန်တော်တို့က dir/ls စသဖြင့် သုံးကြပေမယ့် Get-ChildItem တို့လိုဟာတွေကို မစမ်းဖြစ်တာကြောင့် သိထားတော့ပိုအဆင်ပြေအောင် Noteထဲမှာ command တွေရဲ့ ALIASES nameတင်မကပဲ မူရင်း NAMEတွေကို ပါ ရှာဖို့ ScreenShotနဲ့ပါ ပြထားပါတယ်။
-              နောက် section မှာတော့ power shell scriptကို ပဲရေးပြထားပြီးတော့ spolit sourceတွေပါ linksတွေနဲ့ shareထားပါတယ်။</p>
-            <p class="full-text"></p>
-            <a href="https://medium.com/@thureinstudent18/power-shell-in-security-180175ebc38a" class="read-more">Medium link</a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Add other sections for vlog, tools, about, and contact -->
 
-<!--Vlog-->
-<section id="vlog">
-  <div class="vlog-header">
-    <h2>Vlog & Tutorials</h2>
-    <p>Explore our latest cybersecurity tutorials, tool reviews, and hacking demonstrations</p>
-  </div>
-  
-  <div class="featured-video flipper-featured">
-    <div class="video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/ouIyVL7WixU?si=gSus-I16dGURPUYO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-     
-    </div>
-    <div class="video-info">
-      <h3><i class="fas fa-play-circle"></i> Flipper Zero Setting Up (mmsub)</h3>
-      <p>Learn how to set up and configure your Flipper Zero device for penetration testing and security research. This tutorial covers initial setup, firmware installation, and essential configuration steps.</p>
-      <div class="video-meta">
-        <div class="video-actions">
-          <a href="https://www.youtube.com/watch?v=ouIyVL7WixU" target="_blank" class="video-btn primary">
-            <i class="fab fa-youtube"></i> Watch on YouTube
+        <aside class="course-card hero-course" aria-label="Current Echtit course">
+          <div class="course-card-top">
+            <img src="./img/echtit-logo-transparent.png" alt="" aria-hidden="true">
+            <span class="status-pill" data-i18n="courseStatus">Now enrolling</span>
+          </div>
+
+          <p class="eyebrow" data-i18n="courseEyebrow">Course</p>
+          <h2 data-i18n="courseTitle">Steganography &amp; CTF</h2>
+          <p data-i18n="courseText">Stego, forensics, CTF workflow, and writeups.</p>
+
+          <div class="course-tags" aria-label="Course topics">
+            <span>Steganography</span>
+            <span>Forensics</span>
+            <span>CTF</span>
+          </div>
+
+          <div class="price-box" aria-label="Course price">
+            <span data-i18n="priceLabel">Early bird promotion</span>
+            <div class="price-row">
+              <strong data-i18n="promoPrice">400,000 Ks</strong>
+              <del data-i18n="regularPrice">500,000 Ks</del>
+            </div>
+            <p data-i18n="discountText">Early bird: 20% off.</p>
+          </div>
+
+          <div class="course-meta">
+            <div>
+              <span data-i18n="deliveryLabel">Delivery</span>
+              <strong>Telegram</strong>
+            </div>
+            <div>
+              <span data-i18n="paymentLabel">Payment</span>
+              <strong data-i18n="paymentValue">Telegram inquiry</strong>
+            </div>
+          </div>
+
+          <a class="primary-button" href="https://t.me/zalon123" target="_blank" rel="noopener">
+            <i class="fab fa-telegram" aria-hidden="true"></i>
+            <span data-i18n="courseButton">Inquire at @zalon123</span>
           </a>
-         
-        </div>
-      
+        </aside>
       </div>
-    </div>
-  </div>
-  
-  <!-- Sample Videos Section -->
-        <div class="sample-videos">
-            <div class="sample-header">
-                <h3>More Videos</h3>
-                <div class="sample-filter">
-                    <button class="filter-btn active">All</button>
-                    <button class="filter-btn">Tutorials</button>
-                    <button class="filter-btn">Tools</button>
-                    <button class="filter-btn">Forensics</button>
-                </div>
+    </section>
+
+    <section class="section course-section" id="course">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-i18n="currentCourseEyebrow">Current Paid Course</p>
+          <div>
+            <h2 data-i18n="courseSectionTitle">Steganography &amp; CTF.</h2>
+            <p class="section-lead" data-i18n="courseLead">Inspect. Extract. Write up.</p>
+          </div>
+        </div>
+
+        <div class="course-layout">
+          <article class="course-overview reveal">
+            <img src="./img/volumehiding.webp" alt="Hidden volume and steganography course preview">
+            <div class="course-overview-body">
+              <p class="eyebrow" data-i18n="courseFocusEyebrow">Focus</p>
+              <h3 data-i18n="courseOutcomeTitle">Solve with process.</h3>
+              <p data-i18n="courseOutcomeText">Evidence first. Tools second. Clean writeup last.</p>
+              <div class="price-inline" aria-label="Course price">
+                <span data-i18n="priceLabel">Early bird promotion</span>
+                <strong data-i18n="promoPrice">400,000 Ks</strong>
+                <del data-i18n="regularPrice">500,000 Ks</del>
+                <small data-i18n="discountText">Early bird: 20% off.</small>
+              </div>
+              <a class="secondary-button compact" href="https://t.me/zalon123" target="_blank" rel="noopener">
+                <i class="fab fa-telegram" aria-hidden="true"></i>
+                <span data-i18n="courseAccessButton">Ask on Telegram</span>
+              </a>
             </div>
-            
-            <div class="video-grid">
-                <div class="video-item" data-category="Tutorials">
-                    <div class="video-thumb">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/SKqJsup1A2E?si=C5xo6xtvN8pX3KoE" frameborder="0" allowfullscreen></iframe>
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-duration">12:45</div>
-                    </div>
-                    <div class="video-details">
-                        <h4>Disk Volume Hiding in Windows Step by Step Tutorial</h4>
-                        <p>Learn how to hide disk volumes in Windows for enhanced privacy and security.</p>
-                        <a href="https://www.youtube.com/watch?v=SKqJsup1A2E" target="_blank" class="watch-btn">
-                            <i class="fab fa-youtube"></i> Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="video-item" data-category="Tools">
-                    <div class="video-thumb">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/F1niOHuMK-Q?si=3HmCa7Y25EMlW5K3" frameborder="0" allowfullscreen></iframe>
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-duration">18:30</div>
-                    </div>
-                    <div class="video-details">
-                        <h4>How to Create a Port Scanner with Python</h4>
-                        <p>Build a network port scanner using Python for security assessments.</p>
-                        <a href="https://www.youtube.com/watch?v=F1niOHuMK-Q" target="_blank" class="watch-btn">
-                            <i class="fab fa-youtube"></i> Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="video-item" data-category="Tutorials">
-                    <div class="video-thumb">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/EHM5XsH4sxk?si=-765qZMnZdVHb91r" frameborder="0" allowfullscreen></iframe>
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-duration">22:15</div>
-                    </div>
-                    <div class="video-details">
-                        <h4>How Computers Work and Software Development Life Cycle</h4>
-                        <p>Understanding computer fundamentals and the SDLC process.</p>
-                        <a href="https://www.youtube.com/watch?v=EHM5XsH4sxk" target="_blank" class="watch-btn">
-                            <i class="fab fa-youtube"></i> Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="video-item" data-category="Tutorials">
-                    <div class="video-thumb">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/_Ralh52G7zU?si=r0c04n9XU9z9RgAF" frameborder="0" allowfullscreen></iframe>
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-duration">15:20</div>
-                    </div>
-                    <div class="video-details">
-                        <h4>Network Security Basics</h4>
-                        <p>Essential concepts for securing your network infrastructure.</p>
-                        <a href="https://www.youtube.com/watch?v=_Ralh52G7zU" target="_blank" class="watch-btn">
-                            <i class="fab fa-youtube"></i> Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="video-item" data-category="Tools">
-                    <div class="video-thumb">
-                        <!-- Placeholder for UTM video -->
-                        <div style="width:100%;height:100%;background:#f0f0f0;display:flex;align-items:center;justify-content:center;position:absolute;top:0;left:0;">
-                            <i class="fas fa-video" style="font-size:2rem;color:#ccc;"></i>
-                        </div>
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-duration">25:10</div>
-                    </div>
-                    <div class="video-details">
-                        <h4>How to Use Virtual Machine on M1 and M2 Chip Macbook Using UTM</h4>
-                        <p>Run virtual machines on Apple Silicon Macs with UTM.</p>
-                        <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE" target="_blank" class="watch-btn">
-                            <i class="fab fa-youtube"></i> Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="video-item" data-category="Tutorials">
-                    <div class="video-thumb">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Vlr5VNlfgKU?si=7pSvVlcDLq08JT80" frameborder="0" allowfullscreen></iframe>
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-duration">14:55</div>
-                    </div>
-                    <div class="video-details">
-                        <h4>How to Create a Table with Microsoft Access and Common Errors</h4>
-                        <p>Database creation tips and troubleshooting common MS Access issues.</p>
-                        <a href="https://www.youtube.com/watch?v=Vlr5VNlfgKU" target="_blank" class="watch-btn">
-                            <i class="fab fa-youtube"></i> Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="video-item flipper-featured" data-category="Tools">
-                    <div class="flipper-badge">
-                        <i class="fas fa-bolt"></i> Featured Tool
-                    </div>
-                    <div class="video-thumb">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/jwj67NjJtIo?si=_moXnyzkGR6eMkdt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-duration">19:40</div>
-                    </div>
-                    <div class="video-details">
-                        <h4>How to Create a Bad USB Stick</h4>
-                        <p>Turning a regular USB drive into a penetration testing tool.</p>
-                        <a href="https://www.youtube.com/watch?v=jwj67NjJtIo" target="_blank" class="watch-btn">
-                            <i class="fab fa-youtube"></i> Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="video-item" data-category="Forensics">
-                    <div class="video-thumb">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/k1ZoXKzzwCE?si=rE1BPXE-1MuvGdbD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-duration">16:25</div>
-                    </div>
-                    <div class="video-details">
-                        <h4>How to Hide Your Image File in Audio File Using Steganography</h4>
-                        <p>Concealing files using steganography techniques.</p>
-                        <a href="https://www.youtube.com/watch?v=k1ZoXKzzwCE" target="_blank" class="watch-btn">
-                            <i class="fab fa-youtube"></i> Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="video-item" data-category="Forensics">
-                    <div class="video-thumb">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/876-reckwY8?si=ByNO9GkxYSOzzv1o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-duration">21:05</div>
-                    </div>
-                    <div class="video-details">
-                        <h4>Hijacking File Associations in WinReg</h4>
-                        <p>Persistence technique through Windows Registry file association hijacking.</p>
-                        <a href="https://www.youtube.com/watch?v=876-reckwY8" target="_blank" class="watch-btn">
-                            <i class="fab fa-youtube"></i> Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="video-item" data-category="Forensics">
-                    <div class="video-thumb">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/2WOwqH2efJ4?si=ok49E6j-qfxSMpXa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        <div class="play-btn">
-                            <i class="fas fa-play"></i>
-                        </div>
-                        <div class="video-duration">28:15</div>
-                    </div>
-                    <div class="video-details">
-                        <h4>Static Property-Based Signatures TryHackMe Walkthrough</h4>
-                        <p>Step-by-step guide to solving the TryHackMe Static Property-Based Signatures room.</p>
-                        <a href="https://www.youtube.com/watch?v=2WOwqH2efJ4" target="_blank" class="watch-btn">
-                            <i class="fab fa-youtube"></i> Watch on YouTube
-                        </a>
-                    </div>
-                </div>
-            </div>
-                <script>
-        // Filter functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const videoItems = document.querySelectorAll('.video-item');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    
-                    // Add active class to clicked button
-                    button.classList.add('active');
-                    
-                    const filterValue = button.textContent.trim();
-                    
-                    // Filter videos
-                    videoItems.forEach(item => {
-                        if (filterValue === 'All' || item.getAttribute('data-category') === filterValue) {
-                            item.style.display = 'block';
-                            // Add slight delay for animation effect
-                            setTimeout(() => {
-                                item.style.opacity = '1';
-                                item.style.transform = 'translateY(0)';
-                            }, 50);
-                        } else {
-                            item.style.opacity = '0';
-                            item.style.transform = 'translateY(20px)';
-                            setTimeout(() => {
-                                item.style.display = 'none';
-                            }, 300);
-                        }
-                    });
-                });
-            });
-            
-            // Load more button functionality
-            const loadMoreBtn = document.querySelector('.load-more');
-            let visibleItems = 6; // Initially show 6 items
-            
-            // Initially hide items beyond the first 6
-            videoItems.forEach((item, index) => {
-                if (index >= visibleItems) {
-                    item.style.display = 'none';
-                }
-            });
-            
-            loadMoreBtn.addEventListener('click', () => {
-                visibleItems += 3;
-                
-                videoItems.forEach((item, index) => {
-                    if (index < visibleItems) {
-                        item.style.display = 'block';
-                        // Add animation for newly shown items
-                        setTimeout(() => {
-                            item.style.opacity = '1';
-                            item.style.transform = 'translateY(0)';
-                        }, 50);
-                    }
-                });
-                
-                // Hide load more button if all items are visible
-                if (visibleItems >= videoItems.length) {
-                    loadMoreBtn.style.display = 'none';
-                }
-            });
-        });
-    </script>
-</section>
-    
-    <section id="tools">
-      <div class="tools-content">
-        <h2 class="title-header">Tools</h2>
-        <p>Most of my tools are written in Python and C family languages, and they are primarily designed for red teaming purposes.</p>
-        <div class="tools-list">
-          <!-- Tool 1 -->
-          <div class="tool">
-            <h3>Track with IP address</h3>
-            <p>IP Address Tracker offers CLI and Web interfaces with identical functions for tracking IP addresses or URLs.</p>
-            <a href="https://github.com/thurein2003/IP-Tracker" target="_blank">GitHub</a>
+          </article>
+
+          <div class="module-list" aria-label="Course modules">
+            <article class="module-card reveal">
+              <span>01</span>
+              <h3 data-i18n="moduleOneTitle">File Inspection</h3>
+              <p data-i18n="moduleOneText">Signatures, metadata, strings, and clues.</p>
+            </article>
+            <article class="module-card reveal">
+              <span>02</span>
+              <h3 data-i18n="moduleTwoTitle">Image &amp; Audio Stego</h3>
+              <p data-i18n="moduleTwoText">Common hiding patterns and payloads.</p>
+            </article>
+            <article class="module-card reveal">
+              <span>03</span>
+              <h3 data-i18n="moduleThreeTitle">CTF Writeups</h3>
+              <p data-i18n="moduleThreeText">From clue to flag to final report.</p>
+            </article>
           </div>
-          <!-- Tool 2 -->
-          <div class="tool">
-            <h3>List of various types of Malware</h3>
-            <p>Explore this repository for an educational .bat (batch) file that simplifies malware creation.</p>
-            <a href="https://github.com/thurein2003/Malware-Testing" target="_blank">GitHub</a>
-          </div>
-          <div class="tool">
-            <h3>Port scanner with python</h3>
-            <p>This code is made for port scanning.</p>
-            <a href="https://github.com/thurein2003/Port_scanner_with_python" target="_blank">GitHub</a>
-          </div>
-          <div class="tool">
-            <h3>calculation a area of a circle</h3>
-            <p>Calculate the area of a circle using interest calculation.</p>
-            <a href="https://github.com/thurein2003/calculation-a-circle-area-.git" target="_blank">GitHub</a>
-          </div>
-          <!-- Add more tools as needed -->
         </div>
       </div>
     </section>
-    
+
+    <section class="section org-section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-i18n="focusEyebrow">What Echtit Does</p>
+          <div>
+            <h2 data-i18n="focusTitle">Courses, writeups, videos.</h2>
+            <p class="section-lead" data-i18n="focusLead">Only key updates. No clutter.</p>
+          </div>
+        </div>
+
+        <div class="focus-grid">
+          <article class="focus-card reveal">
+            <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+            <h3 data-i18n="focusCoursesTitle">Courses</h3>
+            <p data-i18n="focusCoursesText">Focused practical learning.</p>
+          </article>
+          <article class="focus-card reveal">
+            <i class="fas fa-book-open" aria-hidden="true"></i>
+            <h3 data-i18n="focusWriteupsTitle">Writeups</h3>
+            <p data-i18n="focusWriteupsText">Short notes and walkthroughs.</p>
+          </article>
+          <article class="focus-card reveal">
+            <i class="fas fa-circle-play" aria-hidden="true"></i>
+            <h3 data-i18n="focusVideosTitle">Videos</h3>
+            <p data-i18n="focusVideosText">Selected demos and tutorials.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-i18n="servicesEyebrow">Services</p>
+          <div>
+            <h2 data-i18n="servicesTitle">Private device control for your own tailnet.</h2>
+            <p class="section-lead" data-i18n="servicesLead">Personal Device Hub helps you manage your computers through Tailscale without using a public file relay.</p>
+          </div>
+        </div>
+
+        <div class="services-layout">
+          <article class="service-copy reveal">
+            <span class="status-pill" data-i18n="serviceStatus">Private beta</span>
+            <h3 data-i18n="serviceTitle">Personal Device Hub</h3>
+            <p data-i18n="serviceText">A private dashboard for Tailscale-connected macOS, Windows, and Linux devices. Browse allowed folders, move files, check device status, and open Live Screen where the device supports it.</p>
+
+            <div class="subscription-row" aria-label="Personal Device Hub subscription price">
+              <span data-i18n="servicePriceLabel">Monthly subscription</span>
+              <strong data-i18n="servicePrice">$3/month</strong>
+              <small data-i18n="servicePriceNote">Bring your own Tailscale. Each device must be installed with your permission.</small>
+            </div>
+
+            <a class="primary-button service-button" href="https://t.me/zalon123" target="_blank" rel="noopener">
+              <i class="fab fa-telegram" aria-hidden="true"></i>
+              <span data-i18n="serviceButton">Ask for access</span>
+            </a>
+          </article>
+
+          <div class="service-terminal reveal" aria-label="Personal Device Hub capabilities">
+            <div class="service-terminal-header">
+              <span>personal-device-hub</span>
+              <strong>$3/mo</strong>
+            </div>
+            <ul>
+              <li>
+                <i class="fas fa-folder-open" aria-hidden="true"></i>
+                <span data-i18n="serviceLineOne">Files stay inside your private Tailscale network.</span>
+              </li>
+              <li>
+                <i class="fas fa-desktop" aria-hidden="true"></i>
+                <span data-i18n="serviceLineTwo">Live Screen works with supported desktop agents.</span>
+              </li>
+              <li>
+                <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                <span data-i18n="serviceLineThree">Bearer token auth and allowed-folder controls are built in.</span>
+              </li>
+              <li>
+                <i class="fas fa-mobile-screen" aria-hidden="true"></i>
+                <span data-i18n="serviceLineFour">Phone browser access for dashboard, uploads, and downloads.</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="service-grid">
+            <article class="service-card reveal">
+              <i class="fas fa-network-wired" aria-hidden="true"></i>
+              <h3 data-i18n="serviceFeatureOneTitle">Private network first</h3>
+              <p data-i18n="serviceFeatureOneText">Built for devices already connected through Tailscale, with no public agent endpoint required.</p>
+            </article>
+            <article class="service-card reveal">
+              <i class="fas fa-file-arrow-up" aria-hidden="true"></i>
+              <h3 data-i18n="serviceFeatureTwoTitle">Files and transfers</h3>
+              <p data-i18n="serviceFeatureTwoText">Access configured folders and transfer files directly between your own devices.</p>
+            </article>
+            <article class="service-card reveal">
+              <i class="fas fa-display" aria-hidden="true"></i>
+              <h3 data-i18n="serviceFeatureThreeTitle">Live Screen</h3>
+              <p data-i18n="serviceFeatureThreeText">Use a real desktop screen bridge on supported computers, with setup kept private to your tailnet.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section selected-work" id="work">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-i18n="workEyebrow">Selected Work</p>
+          <div>
+            <h2 data-i18n="workTitle">A short preview from Echtit.</h2>
+            <p class="section-lead" data-i18n="workLead">A small sample. More later.</p>
+          </div>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card featured reveal">
+            <img src="./img/wireshark.jpg" alt="Wireshark packet analysis screen">
+            <div class="work-body">
+              <span data-i18n="tagWriteup">Writeup</span>
+              <h3 data-i18n="wiresharkTitle">Finding Sensitive Data in Wireshark</h3>
+              <p data-i18n="wiresharkText">Find credential data in captured traffic.</p>
+              <a href="https://medium.com/@thureinstudent18/wireshark-%E1%80%99%E1%80%BE%E1%80%AC-user-credential-data%E1%80%90%E1%80%BD%E1%80%B1%E1%80%80%E1%80%AD%E1%80%AF-%E1%80%98%E1%80%9A%E1%80%BA%E1%80%9C%E1%80%AD%E1%80%AF%E1%80%9B%E1%80%BE%E1%80%AC%E1%80%9B%E1%80%99%E1%80%9C%E1%80%8A%E1%80%BA%E1%80%B8%E1%80%9C%E1%80%B1%E1%80%B8%E1%80%80%E1%80%AD%E1%80%AF-sharing-%E1%80%9C%E1%80%B1%E1%80%B8%E1%80%9C%E1%80%AF%E1%80%95%E1%80%BA%E1%80%95%E1%80%B1%E1%80%B8%E1%80%81%E1%80%BB%E1%80%84%E1%80%BA%E1%80%9C%E1%80%AD%E1%80%AF%E1%80%B7%E1%80%95%E1%80%AB-d24e7fc24333" target="_blank" rel="noopener">
+                <span data-i18n="readWriteup">Read writeup</span>
+                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <img src="./img/browser forensics.jpg" alt="Browser forensics concept image">
+            <div class="work-body">
+              <span data-i18n="tagWriteup">Writeup</span>
+              <h3 data-i18n="browserTitle">Browser Forensics</h3>
+              <p data-i18n="browserText">Browser artifacts and history traces.</p>
+              <a href="https://lavish-birth-09a.notion.site/Browser-Forensics-1f7f1f756b4149bda507e8d962f12e04" target="_blank" rel="noopener">
+                <span data-i18n="readNote">Read note</span>
+                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <a class="video-preview" href="https://www.youtube.com/watch?v=k1ZoXKzzwCE" target="_blank" rel="noopener" aria-label="Watch Steganography File Hiding Demo on YouTube">
+              <img src="./img/forensics.jpg" alt="CTF profile and challenge progress screen">
+              <span>
+                <i class="fas fa-play" aria-hidden="true"></i>
+                <span data-i18n="watch">Watch</span>
+              </span>
+            </a>
+            <div class="work-body">
+              <span data-i18n="tagVideo">Video</span>
+              <h3 data-i18n="stegoVideoTitle">Steganography File Hiding Demo</h3>
+              <p data-i18n="stegoVideoText">A short steganography demo.</p>
+              <a href="https://www.youtube.com/watch?v=k1ZoXKzzwCE" target="_blank" rel="noopener">
+                <span data-i18n="watchVideo">Watch video</span>
+                <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-inner">
+        <div class="reveal">
+          <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
+          <h2 data-i18n="contactTitle">Ask about the course.</h2>
+          <p data-i18n="contactText">Access and payment via Telegram.</p>
+        </div>
+        <a class="primary-button reveal" href="https://t.me/zalon123" target="_blank" rel="noopener">
+          <i class="fab fa-telegram" aria-hidden="true"></i>
+          <span data-i18n="contactButton">Message @zalon123</span>
+        </a>
+      </div>
+    </section>
   </main>
+
   <footer>
-    <ul>
-      <li><a href="mailto:thureinstudent18@gmail.com"><i class="far fa-envelope"></i></a></li>
-      <li><a href="https://www.facebook.com/echtit1"><i class="fab fa-facebook"></i></a></li>
-      <li><a href="https://www.linkedin.com/company/ech-tit"><i class="fab fa-linkedin"></i></a></li>
-      <li><a href="https://github.com/thurein2003"><i class="fab fa-github"></i></a></li>
-
-    </ul>
+    <div class="footer-inner">
+      <span>Echtit</span>
+      <a href="https://t.me/zalon123" target="_blank" rel="noopener">
+        <i class="fab fa-telegram" aria-hidden="true"></i>
+        @zalon123
+      </a>
+    </div>
   </footer>
-
 </body>
 </html>
