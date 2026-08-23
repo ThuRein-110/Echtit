@@ -43,6 +43,10 @@ body {
   letter-spacing: 0;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -315,9 +319,7 @@ img {
 .focus-card,
 .work-card,
 .module-card,
-.course-card,
-.service-card,
-.service-terminal {
+.course-card {
   transition:
     background-color 180ms ease,
     border-color 180ms ease,
@@ -531,8 +533,7 @@ h3 {
 .course-card::before,
 .work-card::before,
 .module-card::before,
-.focus-card::before,
-.service-card::before {
+.focus-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -733,8 +734,7 @@ h3 {
 .course-overview,
 .module-card,
 .focus-card,
-.work-card,
-.service-card {
+.work-card {
   position: relative;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -855,6 +855,11 @@ h3 {
   align-items: stretch;
 }
 
+.minimal-services {
+  display: block;
+  max-width: 760px;
+}
+
 .service-copy {
   min-height: 100%;
   display: flex;
@@ -863,15 +868,36 @@ h3 {
   padding: 0.5rem 1rem 0.5rem 0;
 }
 
+.service-project-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(14, 20, 18, 0.82);
+  padding: 1.25rem;
+}
+
 .service-copy .status-pill {
   width: max-content;
   margin-bottom: 1.1rem;
 }
 
+.project-card-head {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.project-card-head > strong {
+  color: var(--green);
+  font-size: 1.45rem;
+  font-weight: 880;
+  white-space: nowrap;
+}
+
 .service-copy h3 {
   max-width: 620px;
-  font-size: 2.25rem;
-  line-height: 1.08;
+  font-size: 1.75rem;
+  line-height: 1.14;
 }
 
 .service-copy p {
@@ -883,11 +909,11 @@ h3 {
 
 .payment-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: 1fr;
   gap: 0.35rem 1rem;
   align-items: baseline;
-  margin-top: 1.4rem;
-  padding: 1rem 0;
+  margin-top: 1rem;
+  padding: 0.85rem 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
@@ -912,72 +938,71 @@ h3 {
   line-height: 1.55;
 }
 
-.payment-steps {
-  display: grid;
-  gap: 0.55rem;
-  margin: 1rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.payment-steps li {
-  position: relative;
-  min-height: 38px;
+.project-actions {
   display: flex;
-  align-items: center;
-  padding: 0.55rem 0.75rem 0.55rem 2.4rem;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.035);
-  color: var(--soft);
-  line-height: 1.45;
-}
-
-.payment-steps li::before {
-  content: counter(list-item);
-  position: absolute;
-  left: 0.7rem;
-  width: 1.1rem;
-  height: 1.1rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  background: rgba(69, 212, 127, 0.14);
-  color: var(--green);
-  font-size: 0.7rem;
-  font-weight: 850;
-}
-
-.payment-gate {
-  display: grid;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.7rem;
   margin-top: 1rem;
 }
 
-.payment-gate small {
+.project-note {
+  display: block;
+  margin-top: 0.65rem;
   color: var(--muted);
   line-height: 1.5;
 }
 
-.payment-ready-button {
-  width: max-content;
-}
-
-.qr-payment-card {
+.payment-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
   display: grid;
-  grid-template-columns: 156px minmax(0, 1fr);
-  gap: 1rem;
-  align-items: center;
-  margin-top: 1rem;
-  padding: 1rem;
-  border: 1px solid rgba(69, 212, 127, 0.22);
-  border-radius: var(--radius);
-  background: rgba(69, 212, 127, 0.07);
+  place-items: center;
+  padding: 1.2rem;
 }
 
-.qr-payment-card[hidden] {
+.payment-modal[hidden] {
   display: none;
+}
+
+.payment-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 7, 6, 0.78);
+  backdrop-filter: blur(8px);
+}
+
+.payment-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(920px, 100%);
+  max-height: min(92vh, 860px);
+  overflow: auto;
+  display: grid;
+  grid-template-columns: minmax(220px, 0.82fr) minmax(0, 1fr);
+  gap: 1.2rem;
+  align-items: start;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: rgba(14, 20, 18, 0.98);
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 38px;
+  height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  cursor: pointer;
 }
 
 .qr-frame {
@@ -990,27 +1015,17 @@ h3 {
 .qr-frame img {
   display: block;
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 1170 / 1312;
   object-fit: contain;
 }
 
-.qr-payment-card span {
-  display: block;
-  color: var(--green);
-  font-size: 0.78rem;
-  font-weight: 850;
-  text-transform: uppercase;
+.payment-dialog h3 {
+  max-width: 520px;
+  padding-right: 2.5rem;
+  font-size: 1.65rem;
 }
 
-.qr-payment-card strong {
-  display: block;
-  margin-top: 0.35rem;
-  color: var(--text);
-  font-size: 1.25rem;
-  line-height: 1.2;
-}
-
-.qr-payment-card p {
+.payment-dialog p {
   margin-top: 0.45rem;
   color: var(--muted);
   line-height: 1.55;
@@ -1044,105 +1059,6 @@ h3 {
 .payment-actions .secondary-button {
   min-height: 42px;
   padding: 0.7rem 0.9rem;
-}
-
-.service-button {
-  width: max-content;
-  margin-top: 1.4rem;
-}
-
-.service-terminal {
-  min-height: 390px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background:
-    linear-gradient(180deg, rgba(18, 26, 23, 0.94) 0%, rgba(5, 7, 6, 0.94) 100%);
-  box-shadow: var(--shadow);
-  padding: 1.15rem;
-}
-
-.service-terminal-header {
-  min-height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  border-bottom: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 820;
-}
-
-.service-terminal-header strong {
-  color: var(--green);
-}
-
-.service-terminal ul {
-  display: grid;
-  gap: 0.85rem;
-  padding: 1rem 0 0;
-  list-style: none;
-}
-
-.service-terminal li {
-  display: grid;
-  grid-template-columns: 34px minmax(0, 1fr);
-  gap: 0.8rem;
-  align-items: start;
-  padding: 0.82rem;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.035);
-  color: var(--soft);
-  line-height: 1.55;
-}
-
-.service-terminal li i {
-  width: 34px;
-  height: 34px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(46, 174, 232, 0.24);
-  border-radius: 6px;
-  background: rgba(46, 174, 232, 0.08);
-  color: var(--blue);
-}
-
-.service-grid {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.service-card {
-  min-height: 192px;
-  padding: 1.2rem;
-  overflow: hidden;
-}
-
-.service-card i {
-  width: 42px;
-  height: 42px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 1.2rem;
-  border: 1px solid rgba(240, 189, 75, 0.22);
-  border-radius: var(--radius);
-  background: rgba(240, 189, 75, 0.08);
-  color: var(--amber);
-}
-
-.service-card p {
-  margin-top: 0.65rem;
-  color: var(--muted);
-  line-height: 1.66;
 }
 
 .selected-work {
@@ -1311,9 +1227,7 @@ footer {
 .focus-card:hover,
 .module-card:hover,
 .work-card:hover,
-.course-card:hover,
-.service-card:hover,
-.service-terminal:hover {
+.course-card:hover {
   border-color: var(--line-strong);
   background-color: var(--surface-raised);
   transform: translateY(-5px);
@@ -1322,8 +1236,7 @@ footer {
 .focus-card:hover::before,
 .module-card:hover::before,
 .work-card:hover::before,
-.course-card:hover::before,
-.service-card:hover::before {
+.course-card:hover::before {
   opacity: 1;
 }
 
@@ -1455,8 +1368,6 @@ html[lang="my"] .course-overview-body p,
 html[lang="my"] .module-card p,
 html[lang="my"] .focus-card p,
 html[lang="my"] .service-copy p,
-html[lang="my"] .service-card p,
-html[lang="my"] .service-terminal li,
 html[lang="my"] .work-body p,
 html[lang="my"] .contact-inner p {
   line-height: 1.86;
@@ -1568,8 +1479,7 @@ html[lang="my"] .contact-inner p {
   }
 
   .focus-grid,
-  .work-grid,
-  .service-grid {
+  .work-grid {
     grid-template-columns: 1fr 1fr;
   }
 
@@ -1694,12 +1604,8 @@ html[lang="my"] .contact-inner p {
     grid-template-columns: 1fr;
   }
 
-  .qr-payment-card {
-    grid-template-columns: 1fr;
-  }
-
   .qr-frame {
-    width: min(220px, 100%);
+    width: min(260px, 100%);
   }
 
   .payment-ready-button,
@@ -1708,8 +1614,21 @@ html[lang="my"] .contact-inner p {
     width: 100%;
   }
 
-  .service-button {
-    width: 100%;
+  .project-card-head,
+  .project-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .payment-dialog {
+    grid-template-columns: 1fr;
+    max-height: 92vh;
+    padding: 1rem;
+  }
+
+  .payment-dialog h3 {
+    padding-right: 2.4rem;
+    font-size: 1.32rem;
   }
 
   .course-meta div {
@@ -1729,16 +1648,13 @@ html[lang="my"] .contact-inner p {
   .course-overview-body,
   .focus-card,
   .module-card,
-  .service-card,
-  .service-terminal,
   .work-body,
   .hero-course {
     padding: 1rem;
   }
 
   .focus-grid,
-  .work-grid,
-  .service-grid {
+  .work-grid {
     grid-template-columns: 1fr;
   }
 

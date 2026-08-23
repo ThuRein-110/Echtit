@@ -54,7 +54,7 @@ const translations = {
     servicesLead: "Personal Device Hub helps you manage your computers through Tailscale without using a public file relay.",
     serviceStatus: "Private beta",
     serviceTitle: "Personal Device Hub",
-    serviceText: "A private dashboard for Tailscale-connected macOS, Windows, and Linux devices. Browse allowed folders, move files, check device status, and open Live Screen where the device supports it.",
+    serviceText: "Private Tailscale device hub for your own computers.",
     servicePriceLabel: "One-time down payment",
     servicePrice: "$10",
     servicePriceNote: "Tailscale is required. Pay once for private beta setup access.",
@@ -63,7 +63,7 @@ const translations = {
     paymentStepThree: "Send the payment slip on Telegram.",
     paymentStepFour: "After approval, receive your Hub URL and setup help.",
     paymentReadyButton: "Ready to pay",
-    paymentReadyNote: "The QR appears only when you are ready to pay.",
+    paymentReadyNote: "The QR appears only in the payment popup.",
     qrEyebrow: "Thai QR Payment",
     qrTitle: "Scan TrueMoney for the $10 down payment",
     qrText: "After payment, send the screenshot on Telegram with your Tailscale device list.",
@@ -73,6 +73,7 @@ const translations = {
     openTelegram: "Open Telegram",
     copied: "Copied",
     serviceButton: "Ask before paying",
+    downloadSetupGuide: "Download install README",
     serviceLineOne: "Files stay inside your private Tailscale network.",
     serviceLineTwo: "Live Screen works with supported desktop agents.",
     serviceLineThree: "Bearer token auth and allowed-folder controls are built in.",
@@ -156,7 +157,7 @@ const translations = {
     servicesLead: "Personal Device Hub က public file relay မသုံးဘဲ Tailscale မှတစ်ဆင့် ကိုယ်ပိုင် computer များကို စီမံနိုင်စေသည်။",
     serviceStatus: "Private beta",
     serviceTitle: "Personal Device Hub",
-    serviceText: "Tailscale ချိတ်ထားသော macOS၊ Windows၊ Linux device များအတွက် private dashboard ဖြစ်သည်။ Allowed folder များကို ကြည့်ရန်၊ file များရွှေ့ရန်၊ device status စစ်ရန်နှင့် support ရှိသော device များတွင် Live Screen ဖွင့်ရန် အသုံးပြုနိုင်သည်။",
+    serviceText: "ကိုယ်ပိုင် computer များအတွက် private Tailscale device hub။",
     servicePriceLabel: "တစ်ကြိမ် down payment",
     servicePrice: "$10",
     servicePriceNote: "Tailscale လိုအပ်သည်။ Private beta setup access အတွက် တစ်ကြိမ်သာ ပေးချေရန်။",
@@ -165,7 +166,7 @@ const translations = {
     paymentStepThree: "Payment slip ကို Telegram မှ ပို့ပါ။",
     paymentStepFour: "Approve ပြီးပါက Hub URL နှင့် setup help ပို့ပေးပါမည်။",
     paymentReadyButton: "ပေးချေရန် အသင့်ဖြစ်ပြီ",
-    paymentReadyNote: "ပေးချေရန် အသင့်ဖြစ်မှ QR ကို ပြပါမည်။",
+    paymentReadyNote: "QR ကို payment popup ထဲမှာပဲ ပြပါမည်။",
     qrEyebrow: "Thai QR Payment",
     qrTitle: "$10 down payment အတွက် TrueMoney ကို Scan လုပ်ပါ",
     qrText: "ငွေပေးချေပြီးပါက screenshot နှင့် Tailscale device list ကို Telegram မှ ပို့ပါ။",
@@ -175,6 +176,7 @@ const translations = {
     openTelegram: "Telegram ဖွင့်ရန်",
     copied: "Copy ပြီးပါပြီ",
     serviceButton: "မပေးခင် မေးရန်",
+    downloadSetupGuide: "Install README download လုပ်ရန်",
     serviceLineOne: "File များသည် သင့် private Tailscale network ထဲတွင်သာ ရှိသည်။",
     serviceLineTwo: "Live Screen သည် support ရှိသော desktop agent များနှင့်အလုပ်လုပ်သည်။",
     serviceLineThree: "Bearer token auth နှင့် allowed-folder control ပါဝင်သည်။",
@@ -341,7 +343,7 @@ function initCursor() {
   const root = document.documentElement;
   const trail = document.createElement("div");
   const dot = document.createElement("div");
-  const interactiveSelector = "a, button, .course-card, .work-card, .focus-card, .module-card, .service-card, .service-terminal, .lang-switch";
+  const interactiveSelector = "a, button, .course-card, .work-card, .focus-card, .module-card, .service-project-card, .payment-dialog, .lang-switch";
 
   trail.className = "cursor-trail";
   dot.className = "cursor-dot";
@@ -408,12 +410,21 @@ function initPaymentFlow() {
   const toggle = document.querySelector("[data-payment-toggle]");
   const panel = document.querySelector("[data-payment-panel]");
   const copyButton = document.querySelector("[data-copy-payment-message]");
+  const closeControls = document.querySelectorAll("[data-payment-close]");
 
   if (!toggle || !panel) {
     return;
   }
 
   const qrImage = panel.querySelector("[data-qr-src]");
+  const dialog = panel.querySelector(".payment-dialog");
+
+  const closePanel = () => {
+    panel.hidden = true;
+    document.body.classList.remove("modal-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.focus();
+  };
 
   toggle.addEventListener("click", () => {
     if (qrImage && !qrImage.getAttribute("src")) {
@@ -421,8 +432,21 @@ function initPaymentFlow() {
     }
 
     panel.hidden = false;
+    document.body.classList.add("modal-open");
     toggle.setAttribute("aria-expanded", "true");
-    panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    if (dialog instanceof HTMLElement) {
+      dialog.focus();
+    }
+  });
+
+  closeControls.forEach((control) => {
+    control.addEventListener("click", closePanel);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !panel.hidden) {
+      closePanel();
+    }
   });
 
   if (!copyButton) {

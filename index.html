@@ -212,109 +212,68 @@
           </div>
         </div>
 
-        <div class="services-layout">
-          <article class="service-copy reveal">
+        <div class="services-layout minimal-services">
+          <article class="service-copy service-project-card reveal">
             <span class="status-pill" data-i18n="serviceStatus">Private beta</span>
-            <h3 data-i18n="serviceTitle">Personal Device Hub</h3>
-            <p data-i18n="serviceText">A private dashboard for Tailscale-connected macOS, Windows, and Linux devices. Browse allowed folders, move files, check device status, and open Live Screen where the device supports it.</p>
+            <div class="project-card-head">
+              <div>
+                <h3 data-i18n="serviceTitle">Personal Device Hub</h3>
+                <p data-i18n="serviceText">Private Tailscale device hub for your own computers.</p>
+              </div>
+              <strong data-i18n="servicePrice">$10</strong>
+            </div>
 
             <div class="payment-row" aria-label="Personal Device Hub down payment price">
               <span data-i18n="servicePriceLabel">One-time down payment</span>
-              <strong data-i18n="servicePrice">$10</strong>
               <small data-i18n="servicePriceNote">Tailscale is required. Pay once for private beta setup access.</small>
             </div>
 
-            <ol class="payment-steps" aria-label="Personal Device Hub payment steps">
-              <li data-i18n="paymentStepOne">Install or open Tailscale first.</li>
-              <li data-i18n="paymentStepTwo">Click Ready to pay when you are prepared to scan.</li>
-              <li data-i18n="paymentStepThree">Send the payment slip on Telegram.</li>
-              <li data-i18n="paymentStepFour">After approval, receive your Hub URL and setup help.</li>
-            </ol>
-
-            <div class="payment-gate">
+            <div class="project-actions">
               <button class="secondary-button payment-ready-button" type="button" data-payment-toggle aria-expanded="false">
                 <i class="fas fa-qrcode" aria-hidden="true"></i>
                 <span data-i18n="paymentReadyButton">Ready to pay</span>
               </button>
-              <small data-i18n="paymentReadyNote">The QR appears only when you are ready to pay.</small>
+              <a class="primary-button" href="./downloads/personal-device-hub-setup-readme.md" download>
+                <i class="fas fa-download" aria-hidden="true"></i>
+                <span data-i18n="downloadSetupGuide">Download install README</span>
+              </a>
             </div>
-
-            <div class="qr-payment-card" aria-label="Personal Device Hub QR payment" data-payment-panel hidden>
-              <div class="qr-frame">
-                <img data-qr-src="./img/personal-hub-thai-payment-qr.jpg" alt="TrueMoney Thai QR payment for Personal Device Hub">
-              </div>
-              <div>
-                <span data-i18n="qrEyebrow">Thai QR Payment</span>
-                <strong data-i18n="qrTitle">Scan TrueMoney for the $10 down payment</strong>
-                <p data-i18n="qrText">After payment, send the screenshot on Telegram with your Tailscale device list.</p>
-                <div class="slip-check">
-                  <strong data-i18n="slipCheckTitle">Slip review required</strong>
-                  <p data-i18n="slipCheckText">Access is approved only when the slip matches this TrueMoney account, the correct payment, and your Telegram message. Wrong or reused slips are denied.</p>
-                </div>
-                <div class="payment-actions">
-                  <button class="secondary-button compact" type="button" data-copy-payment-message>
-                    <i class="fas fa-copy" aria-hidden="true"></i>
-                    <span data-i18n="copyPaymentMessage">Copy Telegram message</span>
-                  </button>
-                  <a class="primary-button compact" href="https://t.me/zalon123" target="_blank" rel="noopener">
-                    <i class="fab fa-telegram" aria-hidden="true"></i>
-                    <span data-i18n="openTelegram">Open Telegram</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <a class="primary-button service-button" href="https://t.me/zalon123" target="_blank" rel="noopener">
-              <i class="fab fa-telegram" aria-hidden="true"></i>
-              <span data-i18n="serviceButton">Ask before paying</span>
-            </a>
+            <small class="project-note" data-i18n="paymentReadyNote">The QR appears only in the payment popup.</small>
           </article>
-
-          <div class="service-terminal reveal" aria-label="Personal Device Hub capabilities">
-            <div class="service-terminal-header">
-              <span>personal-device-hub</span>
-              <strong>$10 down</strong>
-            </div>
-            <ul>
-              <li>
-                <i class="fas fa-folder-open" aria-hidden="true"></i>
-                <span data-i18n="serviceLineOne">Files stay inside your private Tailscale network.</span>
-              </li>
-              <li>
-                <i class="fas fa-desktop" aria-hidden="true"></i>
-                <span data-i18n="serviceLineTwo">Live Screen works with supported desktop agents.</span>
-              </li>
-              <li>
-                <i class="fas fa-shield-halved" aria-hidden="true"></i>
-                <span data-i18n="serviceLineThree">Bearer token auth and allowed-folder controls are built in.</span>
-              </li>
-              <li>
-                <i class="fas fa-mobile-screen" aria-hidden="true"></i>
-                <span data-i18n="serviceLineFour">Phone browser access for dashboard, uploads, and downloads.</span>
-              </li>
-            </ul>
-          </div>
-
-          <div class="service-grid">
-            <article class="service-card reveal">
-              <i class="fas fa-network-wired" aria-hidden="true"></i>
-              <h3 data-i18n="serviceFeatureOneTitle">Private network first</h3>
-              <p data-i18n="serviceFeatureOneText">Built for devices already connected through Tailscale, with no public agent endpoint required.</p>
-            </article>
-            <article class="service-card reveal">
-              <i class="fas fa-file-arrow-up" aria-hidden="true"></i>
-              <h3 data-i18n="serviceFeatureTwoTitle">Files and transfers</h3>
-              <p data-i18n="serviceFeatureTwoText">Access configured folders and transfer files directly between your own devices.</p>
-            </article>
-            <article class="service-card reveal">
-              <i class="fas fa-display" aria-hidden="true"></i>
-              <h3 data-i18n="serviceFeatureThreeTitle">Live Screen</h3>
-              <p data-i18n="serviceFeatureThreeText">Use a real desktop screen bridge on supported computers, with setup kept private to your tailnet.</p>
-            </article>
-          </div>
         </div>
       </div>
     </section>
+
+    <div class="payment-modal" data-payment-panel hidden>
+      <div class="payment-modal-backdrop" data-payment-close></div>
+      <section class="payment-dialog" role="dialog" aria-modal="true" aria-labelledby="payment-dialog-title" tabindex="-1">
+        <button class="modal-close" type="button" data-payment-close aria-label="Close payment popup">
+          <i class="fas fa-xmark" aria-hidden="true"></i>
+        </button>
+        <div class="qr-frame">
+          <img data-qr-src="./img/personal-hub-thai-payment-qr.jpg" alt="TrueMoney Thai QR payment for Personal Device Hub">
+        </div>
+        <div>
+          <span class="eyebrow" data-i18n="qrEyebrow">Thai QR Payment</span>
+          <h3 id="payment-dialog-title" data-i18n="qrTitle">Scan TrueMoney for the $10 down payment</h3>
+          <p data-i18n="qrText">After payment, send the screenshot on Telegram with your Tailscale device list.</p>
+          <div class="slip-check">
+            <strong data-i18n="slipCheckTitle">Slip review required</strong>
+            <p data-i18n="slipCheckText">Access is approved only when the slip matches this TrueMoney account, the correct payment, and your Telegram message. Wrong or reused slips are denied.</p>
+          </div>
+          <div class="payment-actions">
+            <button class="secondary-button compact" type="button" data-copy-payment-message>
+              <i class="fas fa-copy" aria-hidden="true"></i>
+              <span data-i18n="copyPaymentMessage">Copy Telegram message</span>
+            </button>
+            <a class="primary-button compact" href="https://t.me/zalon123" target="_blank" rel="noopener">
+              <i class="fab fa-telegram" aria-hidden="true"></i>
+              <span data-i18n="openTelegram">Open Telegram</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
 
     <section class="section selected-work" id="work">
       <div class="container">

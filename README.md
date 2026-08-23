@@ -13,6 +13,8 @@ Cybersecurity course and services website for Echtit.
 
 Personal Device Hub is presented as a private Tailscale device-control app with a `$10` one-time down payment. The public site reveals the Thai TrueMoney QR only after the customer clicks ready to pay, then links customers to Telegram for payment slip verification while automated checkout is being prepared.
 
+The public Services section is intentionally minimal. Detailed install instructions live in `downloads/personal-device-hub-setup-readme.md`.
+
 Before selling publicly, add:
 
 - payment checkout link;
