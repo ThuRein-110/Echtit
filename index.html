@@ -218,22 +218,33 @@
             <h3 data-i18n="serviceTitle">Personal Device Hub</h3>
             <p data-i18n="serviceText">A private dashboard for Tailscale-connected macOS, Windows, and Linux devices. Browse allowed folders, move files, check device status, and open Live Screen where the device supports it.</p>
 
-            <div class="subscription-row" aria-label="Personal Device Hub subscription price">
-              <span data-i18n="servicePriceLabel">Monthly subscription</span>
-              <strong data-i18n="servicePrice">$3/month</strong>
-              <small data-i18n="servicePriceNote">Bring your own Tailscale. Each device must be installed with your permission.</small>
+            <div class="payment-row" aria-label="Personal Device Hub down payment price">
+              <span data-i18n="servicePriceLabel">One-time down payment</span>
+              <strong data-i18n="servicePrice">$10</strong>
+              <small data-i18n="servicePriceNote">Tailscale is required. Pay once for private beta setup access.</small>
+            </div>
+
+            <div class="qr-payment-card" aria-label="Personal Device Hub QR payment">
+              <div class="qr-frame">
+                <img src="./img/personal-hub-payment-qr.svg" alt="Personal Device Hub payment QR placeholder">
+              </div>
+              <div>
+                <span data-i18n="qrEyebrow">QR Payment</span>
+                <strong data-i18n="qrTitle">Scan to pay $10</strong>
+                <p data-i18n="qrText">After payment, send the screenshot on Telegram with your Tailscale device list.</p>
+              </div>
             </div>
 
             <a class="primary-button service-button" href="https://t.me/zalon123" target="_blank" rel="noopener">
               <i class="fab fa-telegram" aria-hidden="true"></i>
-              <span data-i18n="serviceButton">Ask for access</span>
+              <span data-i18n="serviceButton">Send payment screenshot</span>
             </a>
           </article>
 
           <div class="service-terminal reveal" aria-label="Personal Device Hub capabilities">
             <div class="service-terminal-header">
               <span>personal-device-hub</span>
-              <strong>$3/mo</strong>
+              <strong>$10 down</strong>
             </div>
             <ul>
               <li>

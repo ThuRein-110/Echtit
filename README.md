@@ -5,13 +5,13 @@ Cybersecurity course and services website for Echtit.
 ## Sections
 
 - Current paid course: Steganography & CTF.
-- Services: Personal Device Hub private beta at `$3/month`.
+- Services: Personal Device Hub private beta with a `$10` one-time down payment.
 - Selected work: writeups and videos.
 - Contact: Telegram inquiry through `@zalon123`.
 
 ## Personal Device Hub Service
 
-Personal Device Hub is presented as a private Tailscale device-control subscription. The public site links customers to Telegram for access while the paid checkout and customer portal are being prepared.
+Personal Device Hub is presented as a private Tailscale device-control app with a `$10` one-time down payment. The public site shows a QR payment area and links customers to Telegram for payment screenshot verification while automated checkout is being prepared.
 
 Before selling publicly, add:
 
