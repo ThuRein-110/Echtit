@@ -4,7 +4,7 @@ Cybersecurity course and services website for Echtit.
 
 ## Sections
 
-- Current paid course: Steganography & CTF.
+- Course announcement: Steganography & CTF coming soon, with no public price shown yet.
 - Services: Personal Device Hub private beta with a `150 THB` one-time down payment.
 - Selected work: writeups and videos.
 - Contact: Telegram inquiry through `@zalon123`.

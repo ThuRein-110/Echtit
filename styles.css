@@ -648,10 +648,16 @@ h3 {
 }
 
 .price-row strong,
-.price-inline strong {
+.price-inline strong,
+.coming-soon-value {
   color: var(--text);
   font-size: 1.55rem;
   font-weight: 880;
+}
+
+.price-box > .coming-soon-value {
+  display: block;
+  margin-top: 0.5rem;
 }
 
 .price-row del,
