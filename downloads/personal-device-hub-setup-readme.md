@@ -6,7 +6,7 @@ Personal Device Hub is a private dashboard for your own Tailscale-connected comp
 
 This file is only a public setup guide. It helps you understand what the app does before you pay.
 
-The real app installer is not inside this file. After your payment slip is approved, you receive a private install package for your operating system.
+The real app installer is not inside this file. After your payment slip is approved, you receive a self-hosted private install package. It runs on your own computer and creates your own private Tailscale dashboard URL.
 
 ## How You Use The App
 
@@ -14,11 +14,12 @@ The real app installer is not inside this file. After your payment slip is appro
 2. Pay the `$10` down payment on the Echtit Services page.
 3. Submit your name and payment slip picture in the web form.
 4. Wait for manual approval.
-5. Receive your private Hub URL and install package.
-6. Run the installer on each computer you want to manage.
-7. Open the Hub URL in your browser.
-8. Choose a device in the dashboard.
-9. Use Files, Transfers, Device Info, or Live Screen when the device supports it.
+5. Receive your self-hosted private install package.
+6. Run one `Install-Hub` file on the computer you choose as the Hub host.
+7. Open the private Tailscale URL printed by the installer.
+8. Run the agent setup command on each extra computer you want to manage.
+9. Choose a device in the dashboard.
+10. Use Files, Transfers, Device Info, or Live Screen when the device supports it.
 
 The app is for your own devices only. It works through your private Tailscale network, not through a public file hosting server.
 
@@ -54,9 +55,8 @@ Access is approved only after the slip is manually checked. Wrong, reused, uncle
 
 After approval, you receive:
 
-- your Hub URL;
-- the private install package for your operating system;
-- the setup command for each device;
+- the self-hosted private install package;
+- Windows, macOS, and Linux `Install-Hub` files;
 - Tailscale checklist;
 - help if your device does not appear in the dashboard.
 
@@ -70,42 +70,43 @@ https://tailscale.com/download
 
 Install it on every computer or phone you want to use with the Hub. Sign in with the same Tailscale account so every device is inside the same tailnet.
 
-## Install The Hub Agent
+## Install The Private Hub
 
-Run only the command sent to you after approval.
+Run only the installer inside the private package sent after approval.
+
+Windows:
+
+```text
+Right-click Install-Hub-Windows.cmd and choose Run as administrator.
+```
+
+macOS:
+
+```text
+Double-click Install-Hub-macOS.command.
+```
 
 Linux:
 
 ```sh
-curl -fsSL http://<your-hub-url>/agent/install-linux.sh | bash
+chmod +x Install-Hub-Linux.sh
+./Install-Hub-Linux.sh
 ```
 
-Windows PowerShell:
-
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -Command "irm http://<your-hub-url>/agent/install-windows.ps1 | iex"
-```
-
-Windows Administrator PowerShell is recommended for firewall and Live Screen setup.
-
-macOS:
-
-```sh
-curl -fsSL http://<your-hub-url>/agent/install-macos.sh | bash
-```
-
-macOS may ask for network permissions. Live Screen may also need Screen Recording permission.
+The installer starts the dashboard as an autorun service and prints your own private Tailscale URL.
 
 ## Open The Hub
 
-1. Open your Hub URL in a browser.
+1. Open the private Tailscale URL printed by the installer.
 2. Press refresh.
 3. Choose a device.
-4. Use Files, Transfers, or Live Screen when the device agent is ready.
+4. Use Settings to install the agent on extra computers.
+5. Use Files, Transfers, or Live Screen when the device agent is ready.
 
 ## Important Notes
 
 - The Hub does not give you a public IP.
+- The owner does not host a URL for you.
 - Tailscale gives each device a private `100.x.x.x` tailnet IP.
 - Files and screen access work only after the agent is installed on that device.
 - iPhone and iPad can use the browser dashboard, but iOS cannot run the desktop agent in the background.
