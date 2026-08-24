@@ -23,6 +23,8 @@ The `Ready to pay` popup includes a secure slip form. It posts to `api/payment-s
 
 If TrueMoney does not work for a customer, the popup tells them to message `@zalon123` on Telegram before paying. Approved customers receive the self-hosted install zip by Gmail within one day.
 
+Telegram review messages include `Access` and `Denied` buttons. Keep the local `Private-Hub` owner approval bot running on your Mac; tapping `Access` sends the clean root zip to the submitted Gmail, while `Denied` sends nothing.
+
 Set these Vercel environment variables before using the form live:
 
 ```text

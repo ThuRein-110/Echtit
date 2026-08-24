@@ -155,6 +155,17 @@ async function sendTelegram(method, formData) {
   }
 }
 
+function reviewKeyboard(requestId) {
+  return {
+    inline_keyboard: [
+      [
+        { text: "Access", callback_data: `paid:access:${requestId}` },
+        { text: "Denied", callback_data: `paid:deny:${requestId}` }
+      ]
+    ]
+  };
+}
+
 async function sendSlipToTelegram({ requestId, fields, file, request }) {
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -177,6 +188,7 @@ async function sendSlipToTelegram({ requestId, fields, file, request }) {
     `Gmail: ${email}`,
     `Expected amount: ${expectedAmount}`,
     "Delivery: send the self-hosted install zip to this Gmail within one day after approval.",
+    "Review: tap Access to email the zip, or Denied to reject without email.",
     `Source: ${host}`,
     `Time: ${new Date().toISOString()}`
   ].join("\n");
@@ -185,6 +197,7 @@ async function sendSlipToTelegram({ requestId, fields, file, request }) {
   messageForm.append("chat_id", chatId);
   messageForm.append("text", message);
   messageForm.append("disable_web_page_preview", "true");
+  messageForm.append("reply_markup", JSON.stringify(reviewKeyboard(requestId)));
   await sendTelegram("sendMessage", messageForm);
 
   const fileForm = new FormData();
