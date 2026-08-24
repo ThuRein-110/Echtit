@@ -2,6 +2,26 @@
 
 Personal Device Hub is a private dashboard for your own Tailscale-connected computers.
 
+## Purpose Of This Guide
+
+This file is only a public setup guide. It helps you understand what the app does before you pay.
+
+The real app installer is not inside this file. After your payment slip is approved, you receive a private install package for your operating system.
+
+## How You Use The App
+
+1. Install Tailscale on your own computers and sign in.
+2. Pay the `$10` down payment on the Echtit Services page.
+3. Submit your name and payment slip picture in the web form.
+4. Wait for manual approval.
+5. Receive your private Hub URL and install package.
+6. Run the installer on each computer you want to manage.
+7. Open the Hub URL in your browser.
+8. Choose a device in the dashboard.
+9. Use Files, Transfers, Device Info, or Live Screen when the device supports it.
+
+The app is for your own devices only. It works through your private Tailscale network, not through a public file hosting server.
+
 ## Before You Pay
 
 You need:
