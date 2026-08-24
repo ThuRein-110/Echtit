@@ -11,7 +11,7 @@ The real app installer is not inside this file. After your payment slip is appro
 ## How You Use The App
 
 1. Install Tailscale on your own computers and sign in.
-2. Pay the `$10` down payment on the Echtit Services page.
+2. Pay the `150 THB` down payment on the Echtit Services page.
 3. Submit your name and payment slip picture in the web form.
 4. Wait for manual approval.
 5. Receive your self-hosted private install package.
@@ -36,7 +36,7 @@ You need:
 1. Open the Echtit Services section.
 2. Click `Ready to pay`.
 3. Scan the TrueMoney QR in the popup.
-4. Pay the `$10` one-time down payment.
+4. Pay exactly `150 THB`.
 5. Fill the payment form with your name and slip picture.
 6. Submit the form.
 
@@ -44,12 +44,12 @@ The form sends your slip to the owner for review:
 
 ```text
 Personal Device Hub payment slip
-I paid the $10 down payment.
+I paid the 150 THB down payment.
 Name:
 Slip picture:
 ```
 
-Access is approved only after the slip is manually checked. Wrong, reused, unclear, or mismatched slips are denied.
+Access is approved only after the slip is manually checked. The amount must be exactly `150 THB`. Wrong, reused, unclear, or mismatched slips are denied.
 
 ## What You Receive After Approval
 

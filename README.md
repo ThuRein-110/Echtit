@@ -5,13 +5,13 @@ Cybersecurity course and services website for Echtit.
 ## Sections
 
 - Current paid course: Steganography & CTF.
-- Services: Personal Device Hub private beta with a `$10` one-time down payment.
+- Services: Personal Device Hub private beta with a `150 THB` one-time down payment.
 - Selected work: writeups and videos.
 - Contact: Telegram inquiry through `@zalon123`.
 
 ## Personal Device Hub Service
 
-Personal Device Hub is presented as a private Tailscale device-control app with a `$10` one-time down payment. The public site reveals the Thai TrueMoney QR only after the customer clicks ready to pay, then collects the buyer name and payment slip picture for manual review.
+Personal Device Hub is presented as a private Tailscale device-control app with a `150 THB` one-time down payment. The public site reveals the Thai TrueMoney QR only after the customer clicks ready to pay, then collects the buyer name and payment slip picture for manual review.
 
 The public Services section is intentionally minimal. The public setup guide in `downloads/personal-device-hub-setup-readme.md` explains how the app works, but the self-hosted private installer package is delivered only after payment approval.
 
