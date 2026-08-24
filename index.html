@@ -256,10 +256,10 @@
         <div>
           <span class="eyebrow" data-i18n="qrEyebrow">Thai QR Payment</span>
           <h3 id="payment-dialog-title" data-i18n="qrTitle">Scan TrueMoney for the $10 down payment</h3>
-          <p data-i18n="qrText">After payment, submit the form. It sends your slip to the Paid User Telegram bot.</p>
+          <p data-i18n="qrText">After payment, enter your name and upload the slip picture here. You do not need Telegram.</p>
           <div class="slip-check">
             <strong data-i18n="slipCheckTitle">Slip review required</strong>
-            <p data-i18n="slipCheckText">Access is approved only when the slip matches this TrueMoney account, the correct payment, and your form details. Wrong or reused slips are denied.</p>
+            <p data-i18n="slipCheckText">Access is approved only when the slip matches this TrueMoney account, the correct payment, and your name. Wrong or reused slips are denied.</p>
           </div>
           <form class="payment-form" data-payment-form enctype="multipart/form-data">
             <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -268,20 +268,8 @@
               <input type="text" name="name" maxlength="80" autocomplete="name" required data-i18n-placeholder="buyerNamePlaceholder" placeholder="Your name">
             </label>
             <label>
-              <span data-i18n="buyerTelegramLabel">Telegram username</span>
-              <input type="text" name="telegram" maxlength="80" autocomplete="off" required data-i18n-placeholder="buyerTelegramPlaceholder" placeholder="@username">
-            </label>
-            <label>
-              <span data-i18n="buyerTailscaleLabel">Tailscale email</span>
-              <input type="email" name="tailscaleEmail" maxlength="120" autocomplete="email" data-i18n-placeholder="buyerTailscalePlaceholder" placeholder="you@example.com">
-            </label>
-            <label>
               <span data-i18n="slipImageLabel">Payment slip picture</span>
               <input type="file" name="slip" accept="image/jpeg,image/png,image/webp" required>
-            </label>
-            <label>
-              <span data-i18n="buyerDevicesLabel">Devices to install</span>
-              <textarea name="devices" maxlength="500" rows="3" data-i18n-placeholder="buyerDevicesPlaceholder" placeholder="Windows laptop, MacBook, Ubuntu PC"></textarea>
             </label>
             <button class="primary-button compact" type="submit">
               <i class="fas fa-paper-plane" aria-hidden="true"></i>

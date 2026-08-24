@@ -11,13 +11,13 @@ Cybersecurity course and services website for Echtit.
 
 ## Personal Device Hub Service
 
-Personal Device Hub is presented as a private Tailscale device-control app with a `$10` one-time down payment. The public site reveals the Thai TrueMoney QR only after the customer clicks ready to pay, then links customers to Telegram for payment slip verification while automated checkout is being prepared.
+Personal Device Hub is presented as a private Tailscale device-control app with a `$10` one-time down payment. The public site reveals the Thai TrueMoney QR only after the customer clicks ready to pay, then collects the buyer name and payment slip picture for manual review.
 
 The public Services section is intentionally minimal. Detailed install instructions live in `downloads/personal-device-hub-setup-readme.md`.
 
 ## Paid User Slip Form
 
-The `Ready to pay` popup includes a secure slip form. It posts to `api/payment-slip.js`, which sends the buyer name, Telegram username, Tailscale email, device list, and slip picture to your Telegram bot.
+The `Ready to pay` popup includes a secure slip form. It posts to `api/payment-slip.js`, which sends the buyer name and slip picture to your private Telegram bot. Customers do not need Telegram.
 
 Set these Vercel environment variables before using the form live:
 

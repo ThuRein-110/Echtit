@@ -162,18 +162,12 @@ async function sendSlipToTelegram({ requestId, fields, file, request }) {
   }
 
   const name = clean(fields.name, 80);
-  const telegram = clean(fields.telegram, 80);
-  const tailscaleEmail = clean(fields.tailscaleEmail, 120);
-  const devices = clean(fields.devices, 500);
   const host = clean(request.headers.host, 120);
 
   const message = [
     "Paid User payment slip",
     `Request ID: ${requestId}`,
     `Name: ${name}`,
-    `Telegram: ${telegram}`,
-    `Tailscale email: ${tailscaleEmail || "not provided"}`,
-    `Devices: ${devices || "not provided"}`,
     `Source: ${host}`,
     `Time: ${new Date().toISOString()}`
   ].join("\n");
@@ -214,10 +208,9 @@ module.exports = async function handler(request, response) {
     }
 
     const name = clean(fields.name, 80);
-    const telegram = clean(fields.telegram, 80);
     const slip = files.slip;
 
-    if (!name || !telegram || !slip) {
+    if (!name || !slip) {
       sendJson(response, 400, { ok: false, error: "missing_required_fields" });
       return;
     }

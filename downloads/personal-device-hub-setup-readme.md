@@ -9,7 +9,6 @@ You need:
 - Tailscale installed on every device you want to connect.
 - All devices logged in to the same Tailscale tailnet.
 - Permission to install the Personal Device Hub agent on each computer.
-- Telegram, so you can send the payment slip and receive setup help.
 
 ## Payment
 
@@ -17,17 +16,16 @@ You need:
 2. Click `Ready to pay`.
 3. Scan the TrueMoney QR in the popup.
 4. Pay the `$10` one-time down payment.
-5. Fill the payment form with your name, Telegram username, and slip picture.
+5. Fill the payment form with your name and slip picture.
 6. Submit the form.
 
-The form sends your slip to the `Paid User` Telegram bot for review:
+The form sends your slip to the owner for review:
 
 ```text
 Personal Device Hub payment slip
 I paid the $10 down payment.
-Tailscale account/email:
-Device list:
-Preferred Hub URL/name:
+Name:
+Slip picture:
 ```
 
 Access is approved only after the slip is manually checked. Wrong, reused, unclear, or mismatched slips are denied.
@@ -99,4 +97,4 @@ If a device is missing:
 1. Make sure Tailscale is running.
 2. Make sure the device is online in the Tailscale app.
 3. Make sure the Hub agent was installed on that computer.
-4. Send your device name, operating system, and Tailscale IP to Telegram.
+4. Send your device name, operating system, and Tailscale IP to the support contact you receive after approval.
