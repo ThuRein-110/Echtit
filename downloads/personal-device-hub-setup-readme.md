@@ -35,12 +35,12 @@ You need:
 
 1. Open the Echtit Services section.
 2. Click `Ready to pay`.
-3. Tap the TrueMoney payment link or scan the QR in the popup.
+3. Tap the TrueMoney payment link or scan the fixed-amount QR in the popup.
 4. Pay exactly `150 THB`.
 5. Fill the payment form with your name and slip picture.
 6. Submit the form.
 
-The TrueMoney link opens a `฿150.00` transfer with the message `for private hub`.
+The TrueMoney link opens a `฿150.00` transfer with the message `for private hub`. The QR is generated from the same link, so scanning it with a phone camera opens that fixed-amount transfer flow.
 
 The form sends your slip to the owner for review:
 
