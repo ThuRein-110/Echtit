@@ -1061,6 +1061,24 @@ h3 {
   padding: 0.7rem 0.9rem;
 }
 
+.payment-help {
+  margin: 0.8rem 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.payment-help a {
+  color: var(--accent-blue);
+  font-weight: 820;
+  text-decoration: none;
+}
+
+.payment-help a:hover,
+.payment-help a:focus-visible {
+  text-decoration: underline;
+}
+
 .payment-form {
   display: grid;
   gap: 0.7rem;

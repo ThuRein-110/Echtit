@@ -12,9 +12,9 @@ The real app installer is not inside this file. After your payment slip is appro
 
 1. Install Tailscale on your own computers and sign in.
 2. Pay the `150 THB` down payment on the Echtit Services page.
-3. Submit your name and payment slip picture in the web form.
+3. Submit your name, Gmail address, and payment slip picture in the web form.
 4. Wait for manual approval.
-5. Receive your self-hosted private install package.
+5. Receive your self-hosted private install zip by Gmail within one day after approval.
 6. Run one `Install-Hub` file on the computer you choose as the Hub host.
 7. Open the private Tailscale URL printed by the installer.
 8. Run the agent setup command on each extra computer you want to manage.
@@ -37,7 +37,7 @@ You need:
 2. Click `Ready to pay`.
 3. Tap the TrueMoney payment link or scan the fixed-amount QR in the popup.
 4. Pay exactly `150 THB`.
-5. Fill the payment form with your name and slip picture.
+5. Fill the payment form with your name, Gmail address, and slip picture.
 6. Submit the form.
 
 The TrueMoney link opens a `฿150.00` transfer with the message `for private hub`. The QR is generated from the same link, so scanning it with a phone camera opens that fixed-amount transfer flow.
@@ -48,10 +48,13 @@ The form sends your slip to the owner for review:
 Personal Device Hub payment slip
 I paid the 150 THB down payment.
 Name:
+Gmail:
 Slip picture:
 ```
 
 Access is approved only after the slip is manually checked. The amount must be exactly `150 THB`. Wrong, reused, unclear, or mismatched slips are denied.
+
+If TrueMoney does not work for you, message `@zalon123` on Telegram before paying. After approval, the install zip is sent to the Gmail address you entered in the form within one day.
 
 ## What You Receive After Approval
 
@@ -61,6 +64,8 @@ After approval, you receive:
 - Windows, macOS, and Linux `Install-Hub` files;
 - Tailscale checklist;
 - help if your device does not appear in the dashboard.
+
+Delivery is by Gmail within one day after payment approval.
 
 ## Install Tailscale First
 

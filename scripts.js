@@ -60,14 +60,16 @@ const translations = {
     servicePriceNote: "Tailscale is required. Pay once for private beta setup access.",
     paymentStepOne: "Install or open Tailscale first.",
     paymentStepTwo: "Click Ready to pay when you are prepared to scan.",
-    paymentStepThree: "Upload your name and payment slip in the popup.",
-    paymentStepFour: "After approval, receive the self-hosted package and setup help.",
+    paymentStepThree: "Upload your name, Gmail, and payment slip in the popup.",
+    paymentStepFour: "After approval, receive the self-hosted zip by Gmail within one day.",
     paymentReadyButton: "Ready to pay",
     paymentReadyNote: "This guide explains the app. The self-hosted package is sent after payment approval.",
     qrEyebrow: "Thai QR Payment",
     qrTitle: "Scan TrueMoney for the 150 THB payment",
     qrText: "Tap the TrueMoney link or scan this fixed-amount QR, then upload your slip here. You do not need Telegram.",
     openTrueMoneyLink: "Open 150 THB TrueMoney link",
+    trueMoneyHelpText: "If TrueMoney does not work for you, message us on Telegram before paying.",
+    trueMoneyHelpLink: "Message @zalon123",
     slipCheckTitle: "Slip review required",
     slipCheckText: "Access is approved only when the slip matches this TrueMoney account, exactly 150 THB, and your name. Wrong or reused slips are denied.",
     copied: "Copied",
@@ -75,14 +77,17 @@ const translations = {
     downloadSetupGuide: "Download setup guide",
     buyerNameLabel: "Name",
     buyerNamePlaceholder: "Your name",
+    buyerEmailLabel: "Gmail for delivery",
+    buyerEmailPlaceholder: "yourname@gmail.com",
     slipImageLabel: "Payment slip picture",
     submitSlipButton: "Submit slip",
     submitSlipSending: "Sending slip...",
-    submitSlipSuccess: "Slip sent. Wait for approval and your self-hosted install package.",
+    submitSlipSuccess: "Slip sent. If approved, the install zip will arrive in your Gmail within one day.",
     submitSlipError: "Could not send the slip. Check the image and try again.",
+    submitSlipInvalidEmail: "Enter a valid Gmail address for delivery.",
     submitSlipNotConfigured: "Slip form is not connected yet. Message @zalon123 after payment.",
     submitSlipFileLarge: "Slip image must be 4 MB or smaller.",
-    paidDeliveryNotice: "After approval, you receive the self-hosted install package. It creates your own Tailscale URL.",
+    paidDeliveryNotice: "After approval, the self-hosted install zip is sent to your Gmail within one day. It creates your own Tailscale URL.",
     serviceLineOne: "Files stay inside your private Tailscale network.",
     serviceLineTwo: "Live Screen works with supported desktop agents.",
     serviceLineThree: "Bearer token auth and allowed-folder controls are built in.",
@@ -172,14 +177,16 @@ const translations = {
     servicePriceNote: "Tailscale လိုအပ်သည်။ Private beta setup access အတွက် တစ်ကြိမ်သာ ပေးချေရန်။",
     paymentStepOne: "Tailscale ကို အရင် install/open လုပ်ပါ။",
     paymentStepTwo: "Scan လုပ်ရန် အသင့်ဖြစ်မှ Ready to pay ကို နှိပ်ပါ။",
-    paymentStepThree: "Popup ထဲတွင် နာမည်နှင့် payment slip ပုံကို upload လုပ်ပါ။",
-    paymentStepFour: "Approve ပြီးပါက self-hosted package နှင့် setup help ပို့ပေးပါမည်။",
+    paymentStepThree: "Popup ထဲတွင် နာမည်၊ Gmail နှင့် payment slip ပုံကို upload လုပ်ပါ။",
+    paymentStepFour: "Approve ပြီးပါက self-hosted zip ကို Gmail သို့ တစ်ရက်အတွင်း ပို့ပေးပါမည်။",
     paymentReadyButton: "ပေးချေရန် အသင့်ဖြစ်ပြီ",
     paymentReadyNote: "ဤ guide သည် app အသုံးပြုပုံကို ရှင်းပြထားသည်။ Self-hosted package ကို payment approve ပြီးမှ ပို့ပါမည်။",
     qrEyebrow: "Thai QR Payment",
     qrTitle: "150 THB payment အတွက် TrueMoney ကို Scan လုပ်ပါ",
     qrText: "TrueMoney link ကို နှိပ်ပါ သို့မဟုတ် fixed amount QR ကို scan လုပ်ပါ၊ ပြီးနောက် slip ပုံကို ဒီမှာ upload လုပ်ပါ။ Telegram မလိုပါ။",
     openTrueMoneyLink: "150 THB TrueMoney link ဖွင့်ရန်",
+    trueMoneyHelpText: "TrueMoney ဖြင့် ပေးချေမရပါက မပေးချေမီ Telegram တွင် message ပို့ပါ။",
+    trueMoneyHelpLink: "@zalon123 သို့ message ပို့ရန်",
     slipCheckTitle: "Slip စစ်ဆေးပြီးမှ approve",
     slipCheckText: "Slip သည် ဤ TrueMoney account၊ 150 THB အတိအကျ၊ နှင့် သင့်နာမည်တို့နှင့် ကိုက်ညီမှ access approve လုပ်ပါမည်။ မှားသော သို့မဟုတ် ပြန်သုံးထားသော slip များကို deny လုပ်ပါမည်။",
     copied: "Copy ပြီးပါပြီ",
@@ -187,14 +194,17 @@ const translations = {
     downloadSetupGuide: "Setup guide download လုပ်ရန်",
     buyerNameLabel: "နာမည်",
     buyerNamePlaceholder: "သင့်နာမည်",
+    buyerEmailLabel: "Delivery အတွက် Gmail",
+    buyerEmailPlaceholder: "yourname@gmail.com",
     slipImageLabel: "Payment slip ပုံ",
     submitSlipButton: "Slip ပို့ရန်",
     submitSlipSending: "Slip ပို့နေပါသည်...",
-    submitSlipSuccess: "Slip ပို့ပြီးပါပြီ။ Approve ပြီးပါက self-hosted install package ပို့ပါမည်။",
+    submitSlipSuccess: "Slip ပို့ပြီးပါပြီ။ Approve ဖြစ်ပါက install zip ကို သင့် Gmail သို့ တစ်ရက်အတွင်း ပို့ပါမည်။",
     submitSlipError: "Slip မပို့နိုင်ပါ။ ပုံကိုစစ်ပြီး ပြန်ကြိုးစားပါ။",
+    submitSlipInvalidEmail: "Delivery အတွက် မှန်ကန်သော Gmail address ထည့်ပါ။",
     submitSlipNotConfigured: "Slip form မချိတ်ရသေးပါ။ ငွေပေးချေပြီးပါက @zalon123 သို့ message ပို့ပါ။",
     submitSlipFileLarge: "Slip ပုံသည် 4 MB သို့မဟုတ် ထက်နည်းရပါမည်။",
-    paidDeliveryNotice: "Approve ပြီးပါက self-hosted install package ပို့ပေးပါမည်။ ၎င်းက သင့်ကိုယ်ပိုင် Tailscale URL ကို ဖန်တီးပေးပါမည်။",
+    paidDeliveryNotice: "Approve ဖြစ်ပါက self-hosted install zip ကို သင့် Gmail သို့ တစ်ရက်အတွင်း ပို့ပါမည်။ ၎င်းက သင့်ကိုယ်ပိုင် Tailscale URL ကို ဖန်တီးပေးပါမည်။",
     serviceLineOne: "File များသည် သင့် private Tailscale network ထဲတွင်သာ ရှိသည်။",
     serviceLineTwo: "Live Screen သည် support ရှိသော desktop agent များနှင့်အလုပ်လုပ်သည်။",
     serviceLineThree: "Bearer token auth နှင့် allowed-folder control ပါဝင်သည်။",
@@ -468,6 +478,7 @@ function initPaymentFlow() {
   const submitButton = form.querySelector("button[type='submit']");
   const submitLabel = submitButton?.querySelector("[data-i18n]");
   const fileInput = form.querySelector("input[name='slip']");
+  const emailInput = form.querySelector("input[name='email']");
 
   const setStatus = (key, mode = "neutral") => {
     if (!status) {
@@ -484,6 +495,11 @@ function initPaymentFlow() {
 
     if (!(fileInput instanceof HTMLInputElement) || !fileInput.files?.[0]) {
       setStatus("submitSlipError", "error");
+      return;
+    }
+
+    if (!(emailInput instanceof HTMLInputElement) || !/^[^\s@]+@gmail\.com$/i.test(emailInput.value.trim())) {
+      setStatus("submitSlipInvalidEmail", "error");
       return;
     }
 
@@ -513,6 +529,10 @@ function initPaymentFlow() {
         const payload = await response.json().catch(() => ({}));
         if (payload.error === "service_not_configured") {
           setStatus("submitSlipNotConfigured", "error");
+          return;
+        }
+        if (payload.error === "invalid_email") {
+          setStatus("submitSlipInvalidEmail", "error");
           return;
         }
         throw new Error("Payment slip submit failed");

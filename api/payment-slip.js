@@ -124,6 +124,10 @@ function clean(value, maxLength) {
     .slice(0, maxLength);
 }
 
+function isGmailAddress(value) {
+  return /^[^\s@]+@gmail\.com$/i.test(value);
+}
+
 function isAllowedOrigin(request) {
   const origin = request.headers.origin;
   if (!origin) {
@@ -162,6 +166,7 @@ async function sendSlipToTelegram({ requestId, fields, file, request }) {
   }
 
   const name = clean(fields.name, 80);
+  const email = clean(fields.email, 120).toLowerCase();
   const host = clean(request.headers.host, 120);
   const expectedAmount = clean(process.env.PAYMENT_EXPECTED_AMOUNT || "150 THB", 40);
 
@@ -169,7 +174,9 @@ async function sendSlipToTelegram({ requestId, fields, file, request }) {
     "Paid User payment slip",
     `Request ID: ${requestId}`,
     `Name: ${name}`,
+    `Gmail: ${email}`,
     `Expected amount: ${expectedAmount}`,
+    "Delivery: send the self-hosted install zip to this Gmail within one day after approval.",
     `Source: ${host}`,
     `Time: ${new Date().toISOString()}`
   ].join("\n");
@@ -182,7 +189,7 @@ async function sendSlipToTelegram({ requestId, fields, file, request }) {
 
   const fileForm = new FormData();
   fileForm.append("chat_id", chatId);
-  fileForm.append("caption", `Slip for ${name} (${requestId})`);
+  fileForm.append("caption", `Slip for ${name} <${email}> (${requestId})`);
   fileForm.append(file.contentType === "image/webp" ? "document" : "photo", new Blob([file.buffer], { type: file.contentType }), file.filename);
   await sendTelegram(file.contentType === "image/webp" ? "sendDocument" : "sendPhoto", fileForm);
 }
@@ -210,10 +217,16 @@ module.exports = async function handler(request, response) {
     }
 
     const name = clean(fields.name, 80);
+    const email = clean(fields.email, 120).toLowerCase();
     const slip = files.slip;
 
-    if (!name || !slip) {
+    if (!name || !email || !slip) {
       sendJson(response, 400, { ok: false, error: "missing_required_fields" });
+      return;
+    }
+
+    if (!isGmailAddress(email)) {
+      sendJson(response, 400, { ok: false, error: "invalid_email" });
       return;
     }
 

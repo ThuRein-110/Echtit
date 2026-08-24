@@ -6,8 +6,8 @@
   <meta name="description" content="Echtit is a cybersecurity learning organization sharing courses, writeups, and videos.">
   <title>Echtit | Cybersecurity Courses and Writeups</title>
   <link rel="icon" href="./img/echtit-logo-transparent.png">
-  <link rel="stylesheet" href="styles.css?v=20260824-fixed-truemoney-qr">
-  <script src="scripts.js?v=20260824-fixed-truemoney-qr" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20260824-gmail-delivery">
+  <script src="scripts.js?v=20260824-gmail-delivery" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -263,6 +263,10 @@
               <span data-i18n="openTrueMoneyLink">Open 150 THB TrueMoney link</span>
             </a>
           </div>
+          <p class="payment-help">
+            <span data-i18n="trueMoneyHelpText">If TrueMoney does not work for you, message us on Telegram before paying.</span>
+            <a href="https://t.me/zalon123" target="_blank" rel="noopener noreferrer" data-i18n="trueMoneyHelpLink">Message @zalon123</a>
+          </p>
           <div class="slip-check">
             <strong data-i18n="slipCheckTitle">Slip review required</strong>
             <p data-i18n="slipCheckText">Access is approved only when the slip matches this TrueMoney account, exactly 150 THB, and your name. Wrong or reused slips are denied.</p>
@@ -274,6 +278,10 @@
               <input type="text" name="name" maxlength="80" autocomplete="name" required data-i18n-placeholder="buyerNamePlaceholder" placeholder="Your name">
             </label>
             <label>
+              <span data-i18n="buyerEmailLabel">Gmail for delivery</span>
+              <input type="email" name="email" maxlength="120" autocomplete="email" required data-i18n-placeholder="buyerEmailPlaceholder" placeholder="yourname@gmail.com">
+            </label>
+            <label>
               <span data-i18n="slipImageLabel">Payment slip picture</span>
               <input type="file" name="slip" accept="image/jpeg,image/png,image/webp" required>
             </label>
@@ -282,7 +290,7 @@
               <span data-i18n="submitSlipButton">Submit slip</span>
             </button>
             <p class="form-status" data-payment-status role="status" aria-live="polite"></p>
-            <small data-i18n="paidDeliveryNotice">After approval, you receive the self-hosted install package. It creates your own Tailscale URL.</small>
+            <small data-i18n="paidDeliveryNotice">After approval, the self-hosted install zip is sent to your Gmail within one day. It creates your own Tailscale URL.</small>
           </form>
         </div>
       </section>
