@@ -15,6 +15,8 @@ Personal Device Hub is presented as a private Tailscale device-control app with 
 
 The public Services section is intentionally minimal. The public setup guide in `downloads/personal-device-hub-setup-readme.md` explains how the app works, but the self-hosted private installer package is delivered only after payment approval.
 
+The Ready to pay popup also includes a TrueMoney payment link for the fixed `฿150.00` amount with the message `for private hub`.
+
 ## Paid User Slip Form
 
 The `Ready to pay` popup includes a secure slip form. It posts to `api/payment-slip.js`, which sends the buyer name and slip picture to your private Telegram bot. Customers do not need Telegram.
