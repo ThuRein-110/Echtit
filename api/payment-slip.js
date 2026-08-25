@@ -179,7 +179,7 @@ async function sendSlipToTelegram({ requestId, fields, file, request }) {
   const name = clean(fields.name, 80);
   const email = clean(fields.email, 120).toLowerCase();
   const host = clean(request.headers.host, 120);
-  const expectedAmount = clean(process.env.PAYMENT_EXPECTED_AMOUNT || "150 THB", 40);
+  const expectedAmount = clean(process.env.PAYMENT_EXPECTED_AMOUNT || "3000 THB", 40);
 
   const message = [
     "Paid User payment slip",
